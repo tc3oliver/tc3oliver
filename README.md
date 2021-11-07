@@ -6,7 +6,7 @@ This is the place where I opensource stuff and break things :rofl:
 - 👀 &nbsp;I’m interested in cryptocurrency
 - 💬 &nbsp;Ask me about anything related to Javascript/Dart/Python or Vue/Flutter/Flask
 - 📫 &nbsp;How to reach me: [@tc3oliver](https://twitter.com/Tc3Oliver)
-- ⚡ &nbsp;:cat
+- ⚡ &nbsp;:cat:
 
 📕 &nbsp;**Latest Blog Posts**
 <!-- BLOG-POST-LIST:START -->
