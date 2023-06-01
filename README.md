@@ -13,3 +13,7 @@ This is the place where I opensource stuff and break things :rofl:
 - ⚡ &nbsp;:cat:
 
 <p align="left"> <img src="https://github-profile-trophy.vercel.app/?username=tc3oliver&no-frame=true" alt="tc3oliver" /> </p>
+
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tc3oliver&theme=dracula)
+
+![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=tc3oliver&theme=dracula)  ![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=tc3oliver&theme=dracula)
