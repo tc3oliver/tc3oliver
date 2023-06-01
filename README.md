@@ -1,4 +1,7 @@
 ### Hi there <a href="https://17coding.online/"><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"></a>
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=tc3oliver&label=Profile+views&color=0e75b6&style=flat" alt="tc3oliver" /> </p>
+
 This is the place where I opensource stuff and break things :rofl:
 
 - 🔭 &nbsp;I’m currently working on something cool :wink:
@@ -8,3 +11,5 @@ This is the place where I opensource stuff and break things :rofl:
 - 🌐 &nbsp;Check out my website: [Meowcoder Wiki](https://wiki.meowcoder.com/)
 - 📫 &nbsp;How to reach me: [@tc3oliver](https://twitter.com/Tc3Oliver)
 - ⚡ &nbsp;:cat:
+
+<p align="left"> <img src="https://github-profile-trophy.vercel.app/?username=tc3oliver&no-frame=true" alt="tc3oliver" /> </p>
