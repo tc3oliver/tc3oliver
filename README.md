@@ -8,7 +8,7 @@ This is the place where I opensource stuff and break things :rofl:
 - 🌱 &nbsp;I’m currently learning cryptography, deep learning
 - 👀 &nbsp;I’m interested in cryptocurrency
 - 💬 &nbsp;Ask me about anything related to Javascript/Dart/Python or Vue/Flutter/Flask
-- 🌐 &nbsp;Check out my website: [Meowcoder Wiki](https://wiki.meowcoder.com/)
+- 🌐 &nbsp;Check out my website: [Meowcoder](https://meowcoder.com/)
 - 📫 &nbsp;How to reach me: [@tc3oliver](https://twitter.com/Tc3Oliver)
 - ⚡ &nbsp;:cat:
 
