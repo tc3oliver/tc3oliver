@@ -18,6 +18,8 @@
     <img src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-22c55e?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
   <img src="https://img.shields.io/badge/Base-Taiwan-8b5cf6?style=for-the-badge&logo=google-maps&logoColor=white" />
+  </a>
+  <img src="https://komarev.com/ghpvc/?username=tc3oliver&label=Profile+views&color=0e75b6&style=flat" alt="tc3oliver" />
 </p>
 
 ---
