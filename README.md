@@ -1,7 +1,7 @@
 <!-- Header -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e40af&height=180&section=header&text=Oliver%20Yu&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36" alt="header"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e40af&height=180&section=header&text=Oliver%20Yu&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36" alt="Oliver Yu Header"/>
 </p>
 
 <h3 align="center">
@@ -10,12 +10,12 @@ AI Systems Engineer · Agent Runtime · RAG · Model Serving · Engineering Auto
 
 <p align="center">
   <a href="https://meowcoder.com">
-    <img src="https://img.shields.io/badge/Website-meowcoder.com-1e40af?style=flat-square&logo=vercel&logoColor=white" />
+    <img src="https://img.shields.io/badge/Website-meowcoder.com-1e40af?style=flat-square&logo=vercel&logoColor=white" alt="Website"/>
   </a>
   <a href="mailto:tc3oliver@gmail.com">
-    <img src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-334155?style=flat-square&logo=gmail&logoColor=white" />
+    <img src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-334155?style=flat-square&logo=gmail&logoColor=white" alt="Email"/>
   </a>
-  <img src="https://img.shields.io/badge/Base-Taiwan-475569?style=flat-square" />
+  <img src="https://img.shields.io/badge/Base-Taiwan-475569?style=flat-square" alt="Based in Taiwan"/>
 </p>
 
 ---
@@ -80,7 +80,7 @@ Engineering highlights:
 * Citation validation against retrieved chunks and content hashes
 * Tool permission boundary for safe local file access
 * Evaluation gates for retrieval, citation validity, privacy compliance, and model routing
-* Real-corpus benchmark and traceable execution records
+* Real-corpus benchmarks and traceable execution records
 
 ---
 
@@ -100,20 +100,20 @@ Engineering highlights:
 ## Tech Stack
 
 <p>
-  <img src="https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-334155?style=flat-square&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FastAPI-334155?style=flat-square&logo=fastapi&logoColor=white"/>
-  <img src="https://img.shields.io/badge/LangGraph-334155?style=flat-square"/>
-  <img src="https://img.shields.io/badge/LangChain-334155?style=flat-square"/>
-  <img src="https://img.shields.io/badge/RAG-334155?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Docker-334155?style=flat-square&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Jenkins-334155?style=flat-square&logo=jenkins&logoColor=white"/>
-  <img src="https://img.shields.io/badge/GitLab%20CI-334155?style=flat-square&logo=gitlab&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AWS%20ECS-334155?style=flat-square&logo=amazon-ecs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Redis-334155?style=flat-square&logo=redis&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vue-334155?style=flat-square&logo=vuedotjs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-334155?style=flat-square&logo=react&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/TypeScript-334155?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/FastAPI-334155?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/LangGraph-334155?style=flat-square" alt="LangGraph"/>
+  <img src="https://img.shields.io/badge/LangChain-334155?style=flat-square" alt="LangChain"/>
+  <img src="https://img.shields.io/badge/RAG-334155?style=flat-square" alt="RAG"/>
+  <img src="https://img.shields.io/badge/Docker-334155?style=flat-square&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Jenkins-334155?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins"/>
+  <img src="https://img.shields.io/badge/GitLab%20CI-334155?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab CI"/>
+  <img src="https://img.shields.io/badge/AWS%20ECS-334155?style=flat-square&logo=amazon-ecs&logoColor=white" alt="AWS ECS"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Redis-334155?style=flat-square&logo=redis&logoColor=white" alt="Redis"/>
+  <img src="https://img.shields.io/badge/Vue-334155?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue"/>
+  <img src="https://img.shields.io/badge/React-334155?style=flat-square&logo=react&logoColor=white" alt="React"/>
 </p>
 
 ---
@@ -121,12 +121,13 @@ Engineering highlights:
 ## GitHub Activity
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tc3oliver&theme=github_dark" width="90%"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=tc3oliver&theme=github_dark" width="45%"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=tc3oliver&theme=github_dark" width="45%"/>
+  <picture>
+    <img
+      src="./github-metrics.svg"
+      width="100%"
+      alt="Oliver Yu GitHub Metrics"
+    />
+  </picture>
 </p>
 
 ---
@@ -135,9 +136,8 @@ Engineering highlights:
 
 I prefer systems that are simple at the boundary and explicit inside.
 
-A useful AI system should be traceable, testable, replaceable, and safe to operate.
-Models can change. The runtime, evaluation loop, and engineering boundaries should remain clear.
+A useful AI system should be traceable, testable, replaceable, and safe to operate. Models can change. The runtime, evaluation loop, and engineering boundaries should remain clear.
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e40af,100:0f172a&height=100&section=footer" alt="footer"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e40af,100:0f172a&height=100&section=footer" alt="Footer"/>
 </p>
