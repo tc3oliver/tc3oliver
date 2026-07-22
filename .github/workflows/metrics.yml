@@ -32,9 +32,3 @@ jobs:
           plugin_languages_limit: 8
           plugin_languages_details: percentage
           plugin_languages_threshold: 1%
-
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
