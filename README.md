@@ -9,7 +9,7 @@ AI Systems Engineer · Agent Runtime · RAG · Model Serving · Engineering Auto
 </h3>
 
 <p align="center">
-  <a href="https://meowcoder.com">
+  <a href="https://study.meowcoder.com">
     <img src="https://img.shields.io/badge/Website-meowcoder.com-1e40af?style=flat-square&logo=vercel&logoColor=white" alt="Website"/>
   </a>
   <a href="mailto:tc3oliver@gmail.com">
