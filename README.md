@@ -1,21 +1,41 @@
 <!-- Header -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e40af&height=180&section=header&text=Oliver%20Yu&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36" alt="Oliver Yu Header"/>
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e40af&height=165&section=header&text=Oliver%20Yu&fontSize=40&fontColor=ffffff&fontAlignY=36"
+    alt="Oliver Yu"
+  />
 </p>
 
 <h3 align="center">
-AI Systems Engineer · Agent Runtime · RAG · Model Serving · Engineering Automation
+  AI Systems Engineer · Agent Platform Architect
 </h3>
 
 <p align="center">
+  Agent Runtime · Enterprise RAG · Model Serving · AI-Driven Engineering
+</p>
+
+<p align="center">
+  Building production-oriented AI systems across models, knowledge, tools, infrastructure, and software delivery.
+</p>
+
+<p align="center">
   <a href="https://study.meowcoder.com">
-    <img src="https://img.shields.io/badge/Website-meowcoder.com-1e40af?style=flat-square&logo=vercel&logoColor=white" alt="Website"/>
+    <img
+      src="https://img.shields.io/badge/Technical%20Notes-study.meowcoder.com-1e40af?style=flat-square&logo=readthedocs&logoColor=white"
+      alt="Technical Notes"
+    />
   </a>
   <a href="mailto:tc3oliver@gmail.com">
-    <img src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-334155?style=flat-square&logo=gmail&logoColor=white" alt="Email"/>
+    <img
+      src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-334155?style=flat-square&logo=gmail&logoColor=white"
+      alt="Email"
+    />
   </a>
-  <img src="https://img.shields.io/badge/Base-Taiwan-475569?style=flat-square" alt="Based in Taiwan"/>
+  <img
+    src="https://img.shields.io/badge/Based%20in-Taiwan-475569?style=flat-square"
+    alt="Based in Taiwan"
+  />
 </p>
 
 ---
@@ -24,80 +44,70 @@ AI Systems Engineer · Agent Runtime · RAG · Model Serving · Engineering Auto
 
 I am a Senior AI Engineer and System Architect based in Taiwan.
 
-My work focuses on building practical AI systems that connect models, data, infrastructure, and engineering workflows. I have experience across mobile, web, backend, DevOps, cloud infrastructure, and AI/ML system integration.
+I design and build AI platforms that connect language models, enterprise knowledge, engineering tools, inference infrastructure, and software development workflows.
 
-Current areas of focus:
+My work focuses on turning AI prototypes into systems that are deployable, measurable, permission-aware, and maintainable.
 
-* Agent runtime and workflow orchestration
-* Retrieval-augmented generation and citation-grounded systems
-* Local-first and hybrid AI architecture
-* Model routing, privacy routing, and tool permission control
-* LLM evaluation, traceability, and regression testing
-* Inference serving and AI infrastructure integration
-* Internal developer tools and engineering automation
+My engineering background spans system architecture, backend services, web and mobile applications, cloud infrastructure, DevOps, information security, and machine learning system integration.
 
 ---
 
-## Engineering Focus
+## AI Engineering Focus
 
-| Area                    | Focus                                                                                     |
-| ----------------------- | ----------------------------------------------------------------------------------------- |
-| AI Systems              | LLM applications, RAG, embeddings, agent workflows, evaluation pipelines                  |
-| Agent Runtime           | LangGraph workflows, tool routing, model routing, structured output, trace logging        |
-| Model Serving           | Local inference, OpenAI-compatible runtimes, GPU serving, latency and throughput analysis |
-| System Architecture     | FastAPI, REST/gRPC APIs, gateway design, authentication, service integration              |
-| Infrastructure          | Docker, Jenkins, GitLab CI, Terraform, AWS ECS, monitoring, deployment workflows          |
-| Data Layer              | PostgreSQL, SQL Server, Redis, vector databases, metadata stores, trace stores            |
-| Application Development | Python, TypeScript, Vue, React, Flutter, iOS, Android                                     |
-| Engineering Practice    | Static analysis, testing, CI/CD, observability, release gates, Git workflow               |
+### Agent Platforms
 
----
+* Stateful agent workflows and multi-agent orchestration
+* Tool calling, MCP, structured output, and permission control
+* Execution tracing, checkpoints, retries, and failure recovery
 
-## Featured Project
+### Enterprise Knowledge
 
-### Personal R&D Agent OS
+* RAG, hybrid retrieval, reranking, and knowledge graphs
+* Code, specification, and cross-repository knowledge integration
+* Citation grounding, source validation, and retrieval evaluation
 
-A local-first, model-agnostic, privacy-aware agent runtime for personal research workflows.
+### Model Infrastructure
 
-This project turns Markdown research notes into a searchable, citation-grounded, traceable, and evaluation-driven research assistant. It is designed as an agent runtime rather than a chatbot, with explicit boundaries around retrieval, model routing, privacy, tool access, tracing, and evaluation.
+* vLLM, ROCm, and OpenAI-compatible model gateways
+* Model routing, quantization, KV cache, and memory optimization
+* Latency, throughput, concurrency, and capacity analysis
 
-Core capabilities:
+### AI-Driven Engineering
 
-* Markdown research corpus ingestion
-* Hybrid retrieval with citation validation
-* Privacy-aware model routing
-* Structured output validation
-* JSONL trace logging
-* Runtime tool permission gate
-* LangGraph-based workflow execution
-* Research QA, digest, topic exploration, and synthesis workflows
-* Regression and adversarial evaluation suites
-
-Engineering highlights:
-
-* Local-first architecture with configurable model and embedding providers
-* Separation between routing decisions and runtime adapters
-* Citation validation against retrieved chunks and content hashes
-* Tool permission boundary for safe local file access
-* Evaluation gates for retrieval, citation validity, privacy compliance, and model routing
-* Real-corpus benchmarks and traceable execution records
+* AI code review, agentic coding, and CI/CD integration
+* Agent evaluation, regression testing, and observability
+* Runtime security, audit trails, and policy-controlled tool execution
 
 ---
 
-## Selected Technical Interests
+## AI Platform Architecture
 
-* Agentic system design
-* RAG quality and retrieval evaluation
-* Model-agnostic LLM application architecture
-* Local and hybrid AI infrastructure
-* AI-assisted engineering workflows
-* Secure tool execution for agents
-* Observability and regression testing for AI systems
-* Developer productivity platforms
+```text
+Applications and Engineering Workflows
+                  │
+                  ▼
+        Agent Runtime Platform
+                  │
+       ┌──────────┼───────────┐
+       ▼          ▼           ▼
+  Knowledge     Tools      Evaluation
+  Retrieval     and MCP    and Tracing
+       │          │           │
+       └──────────┼───────────┘
+                  ▼
+       Model Gateway and Router
+                  │
+       ┌──────────┴───────────┐
+       ▼                      ▼
+ Local Inference        Hosted Models
+ vLLM / ROCm            API Providers
+```
+
+The platform boundary keeps models, retrieval systems, tools, policies, and evaluation components independently replaceable.
 
 ---
 
-## Tech Stack
+## Core Technologies
 
 <p>
   <img src="https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white" alt="Python"/>
@@ -105,15 +115,52 @@ Engineering highlights:
   <img src="https://img.shields.io/badge/FastAPI-334155?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
   <img src="https://img.shields.io/badge/LangGraph-334155?style=flat-square" alt="LangGraph"/>
   <img src="https://img.shields.io/badge/LangChain-334155?style=flat-square" alt="LangChain"/>
+  <img src="https://img.shields.io/badge/MCP-334155?style=flat-square" alt="Model Context Protocol"/>
   <img src="https://img.shields.io/badge/RAG-334155?style=flat-square" alt="RAG"/>
+  <img src="https://img.shields.io/badge/GraphRAG-334155?style=flat-square" alt="GraphRAG"/>
+  <img src="https://img.shields.io/badge/vLLM-334155?style=flat-square" alt="vLLM"/>
+  <img src="https://img.shields.io/badge/ROCm-334155?style=flat-square&logo=amd&logoColor=white" alt="ROCm"/>
   <img src="https://img.shields.io/badge/Docker-334155?style=flat-square&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Jenkins-334155?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins"/>
   <img src="https://img.shields.io/badge/GitLab%20CI-334155?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab CI"/>
-  <img src="https://img.shields.io/badge/AWS%20ECS-334155?style=flat-square&logo=amazon-ecs&logoColor=white" alt="AWS ECS"/>
+  <img src="https://img.shields.io/badge/Jenkins-334155?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins"/>
   <img src="https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
   <img src="https://img.shields.io/badge/Redis-334155?style=flat-square&logo=redis&logoColor=white" alt="Redis"/>
-  <img src="https://img.shields.io/badge/Vue-334155?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue"/>
-  <img src="https://img.shields.io/badge/React-334155?style=flat-square&logo=react&logoColor=white" alt="React"/>
+  <img src="https://img.shields.io/badge/Qdrant-334155?style=flat-square" alt="Qdrant"/>
+  <img src="https://img.shields.io/badge/Neo4j-334155?style=flat-square&logo=neo4j&logoColor=white" alt="Neo4j"/>
+</p>
+
+<details>
+  <summary><strong>Additional Engineering Experience</strong></summary>
+  <br/>
+
+* **Architecture:** REST, gRPC, API gateways, authentication, RBAC, and asynchronous services
+* **Infrastructure:** Docker, AWS ECS, Terraform, monitoring, and automated deployment
+* **Data:** PostgreSQL, SQL Server, Redis, vector databases, and graph databases
+* **Applications:** Vue, React, PWA, Flutter, native iOS, and native Android
+* **Engineering:** Static analysis, testing, observability, security controls, and release governance
+
+</details>
+
+---
+
+## Technical Writing
+
+I publish research notes and technical analysis on:
+
+* AI agent architecture and runtime engineering
+* Enterprise RAG and knowledge systems
+* Model inference and serving optimization
+* Agent security and runtime governance
+* AI-assisted software development
+* Software architecture and engineering automation
+
+<p>
+  <a href="https://study.meowcoder.com">
+    <img
+      src="https://img.shields.io/badge/Read%20Technical%20Notes-MeowCoder%20Lab-1e40af?style=flat-square&logo=markdown&logoColor=white"
+      alt="MeowCoder Lab"
+    />
+  </a>
 </p>
 
 ---
@@ -121,23 +168,31 @@ Engineering highlights:
 ## GitHub Activity
 
 <p align="center">
-  <picture>
-    <img
-      src="./github-metrics.svg"
-      width="100%"
-      alt="Oliver Yu GitHub Metrics"
-    />
-  </picture>
+  <img
+    src="./github-metrics.svg"
+    width="100%"
+    alt="Oliver Yu GitHub Metrics"
+  />
 </p>
 
 ---
 
-## Engineering Philosophy
+## Engineering Principles
 
-I prefer systems that are simple at the boundary and explicit inside.
+> Models are replaceable. Runtime boundaries and evaluation loops are architecture.
 
-A useful AI system should be traceable, testable, replaceable, and safe to operate. Models can change. The runtime, evaluation loop, and engineering boundaries should remain clear.
+AI systems should remain:
+
+* **Traceable** — decisions, sources, and execution paths can be inspected
+* **Testable** — retrieval, routing, tools, and outputs can be regression-tested
+* **Replaceable** — models and providers remain interchangeable
+* **Permission-aware** — tool access follows explicit runtime policies
+* **Observable** — quality, latency, cost, usage, and failures remain measurable
+* **Recoverable** — workflows support retries, checkpoints, and controlled failure
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e40af,100:0f172a&height=100&section=footer" alt="Footer"/>
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:1e40af,100:0f172a&height=90&section=footer"
+    alt="Footer"
+  />
 </p>
