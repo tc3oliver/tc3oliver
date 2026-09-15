@@ -8,7 +8,7 @@
 </p>
 
 <h3 align="center">
-  AI Systems Engineer · Agent Platform Architect
+  AI Systems Engineer · System Architect
 </h3>
 
 <p align="center">
@@ -20,6 +20,12 @@
 </p>
 
 <p align="center">
+  <a href="https://meowcoder.com">
+    <img
+      src="https://img.shields.io/badge/Portfolio-meowcoder.com-0f172a?style=flat-square&logo=astro&logoColor=white"
+      alt="Portfolio"
+    />
+  </a>
   <a href="https://study.meowcoder.com">
     <img
       src="https://img.shields.io/badge/Technical%20Notes-study.meowcoder.com-1e40af?style=flat-square&logo=readthedocs&logoColor=white"
@@ -49,6 +55,17 @@ I design and build AI platforms that connect language models, enterprise knowled
 My work focuses on turning AI prototypes into systems that are deployable, measurable, permission-aware, and maintainable.
 
 My engineering background spans system architecture, backend services, web and mobile applications, cloud infrastructure, DevOps, information security, and machine learning system integration.
+
+---
+
+## Featured Work
+
+| | |
+|---|---|
+| [**SignalForge**](https://github.com/tc3oliver/signalforge) | Self-hosted intelligence pipeline: multi-source collection, event-centric deduplication, a cross-day story ledger, and a source-grounded daily brief validated by code. Two restricted agent sessions, Postgres, a read-only reader that never calls a model. [Case study →](https://meowcoder.com/work/signalforge/) |
+| [**AI Coding Skills**](https://github.com/tc3oliver/skills) | Versioned workflows for coding agents: requirement alignment, just-in-time planning, project-detected validation, explicit completion criteria. [Case study →](https://meowcoder.com/work/ai-coding-skills/) |
+| [**Shouri / 收理**](https://shouri.app) | An AI organizer that saves first and structures later, with the original kept as the source of truth. [Case study →](https://meowcoder.com/work/shouri/) |
+| [**version-aware-code-mcp**](https://github.com/tc3oliver/version-aware-code-mcp) | Branch-aware code search plus structural code-graph analysis for coding agents, over MCP. |
 
 ---
 
@@ -145,7 +162,7 @@ The platform boundary keeps models, retrieval systems, tools, policies, and eval
 
 ## Technical Writing
 
-I publish research notes and technical analysis on:
+I publish research notes and technical analysis on [study.meowcoder.com](https://study.meowcoder.com), in Traditional Chinese:
 
 * AI agent architecture and runtime engineering
 * Enterprise RAG and knowledge systems
