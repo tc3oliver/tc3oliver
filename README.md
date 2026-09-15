@@ -62,7 +62,7 @@ My engineering background spans system architecture, backend services, web and m
 
 | | |
 |---|---|
-| [**SignalForge**](https://github.com/tc3oliver/signalforge) | Self-hosted intelligence pipeline: multi-source collection, event-centric deduplication, a cross-day story ledger, and a source-grounded daily brief validated by code. Two restricted agent sessions, Postgres, a read-only reader that never calls a model. [Case study →](https://meowcoder.com/work/signalforge/) |
+| [**SignalForge**](https://github.com/tc3oliver/signalforge) | Self-hosted intelligence pipeline: multi-source collection, event-centric deduplication, a cross-day story ledger, and a source-grounded daily brief validated by code. Two restricted agent sessions, Postgres, a read-only reader that never calls a model. [Live →](https://signal.meowcoder.com) · [Case study →](https://meowcoder.com/work/signalforge/) |
 | [**AI Coding Skills**](https://github.com/tc3oliver/skills) | Versioned workflows for coding agents: requirement alignment, just-in-time planning, project-detected validation, explicit completion criteria. [Case study →](https://meowcoder.com/work/ai-coding-skills/) |
 | [**Shouri / 收理**](https://shouri.app) | An AI organizer that saves first and structures later, with the original kept as the source of truth. [Case study →](https://meowcoder.com/work/shouri/) |
 | [**version-aware-code-mcp**](https://github.com/tc3oliver/version-aware-code-mcp) | Branch-aware code search plus structural code-graph analysis for coding agents, over MCP. |
