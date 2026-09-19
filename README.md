@@ -69,6 +69,14 @@ My engineering background spans system architecture, backend services, web and m
 
 ---
 
+## Research
+
+| | |
+|---|---|
+| [**Reusable State Economics in Interactive LLM Inference**](https://github.com/tc3oliver/llm-inference-systems) | Cold 16K time-to-first-token cut from 57.84 s to 19.24 s on one Apple silicon machine, after which a paired coding-agent session ran slower — one run per arm, different agent trajectories, which is why the published evidence is a request-level trace of 20 prefix-cache restores rather than that comparison. Data, figures and the plotting script are in the repository. [Article →](https://github.com/tc3oliver/llm-inference-systems/blob/main/publications/article.zh.md) · [Case study →](https://meowcoder.com/work/reusable-state-economics/) · [omlx#3756 →](https://github.com/jundot/omlx/pull/3756) · [omlx#3762 →](https://github.com/jundot/omlx/pull/3762) |
+
+---
+
 ## AI Engineering Focus
 
 ### Agent Platforms
