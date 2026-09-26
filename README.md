@@ -1,223 +1,127 @@
-<!-- Header -->
+# Oliver Yu
 
-<p align="center">
-  <img
-    src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e40af&height=165&section=header&text=Oliver%20Yu&fontSize=40&fontColor=ffffff&fontAlignY=36"
-    alt="Oliver Yu"
-  />
-</p>
+**LLM Systems / Inference Engineer**
 
-<h3 align="center">
-  AI Systems Engineer · System Architect
-</h3>
+Runtime · Serving · Prefill · Caching · Speculative Decoding · Heterogeneous Inference
 
-<p align="center">
-  Agent Runtime · Enterprise RAG · Model Serving · AI-Driven Engineering
-</p>
+I work on LLM inference runtimes and serving, mostly on Apple silicon with MLX, Core ML and the
+Neural Engine: cache behavior, concurrency, correctness and measured performance. When a
+measurement turns up a defect in a runtime I depend on, the fix goes upstream, so far to Apple
+coremltools and oMLX.
 
-<p align="center">
-  Building production-oriented AI systems across models, knowledge, tools, infrastructure, and software delivery.
-</p>
+[Portfolio](https://meowcoder.com) · [Research Notes](https://study.meowcoder.com) · [Email](mailto:tc3oliver@gmail.com)
 
-<p align="center">
-  <a href="https://meowcoder.com">
-    <img
-      src="https://img.shields.io/badge/Portfolio-meowcoder.com-0f172a?style=flat-square&logo=astro&logoColor=white"
-      alt="Portfolio"
-    />
-  </a>
-  <a href="https://study.meowcoder.com">
-    <img
-      src="https://img.shields.io/badge/Technical%20Notes-study.meowcoder.com-1e40af?style=flat-square&logo=readthedocs&logoColor=white"
-      alt="Technical Notes"
-    />
-  </a>
-  <a href="mailto:tc3oliver@gmail.com">
-    <img
-      src="https://img.shields.io/badge/Email-tc3oliver%40gmail.com-334155?style=flat-square&logo=gmail&logoColor=white"
-      alt="Email"
-    />
-  </a>
-  <img
-    src="https://img.shields.io/badge/Based%20in-Taiwan-475569?style=flat-square"
-    alt="Based in Taiwan"
-  />
-</p>
+## Selected OSS Contributions
 
----
+<!-- OSS-SELECTED:START -->
+**Apple coremltools**
 
-## About
+- Open · [#2876](https://github.com/apple/coremltools/pull/2876 "Release the GIL during native MLModel prediction") — Synchronous `MLModel.predict()` holds the GIL for the entire native Core ML call, blocking other Python threads in the process that need it. Releases it around the native prediction only, with a threading regression test. Came out of the laya-apple GPU + ANE research.
 
-I am a Senior AI Engineer and System Architect based in Taiwan.
+**oMLX**
 
-I design and build AI platforms that connect language models, enterprise knowledge, engineering tools, inference infrastructure, and software development workflows.
+- **Merged** · [#3685](https://github.com/jundot/omlx/pull/3685 "fix(attention): keep SDPA256 prefill on the bounded route") — The SDPA256 prefill route was chosen from live memory headroom, so an identical request gave different temperature-0 output in different processes. The route now depends on the call shape alone.
+- **Merged** · [#3840](https://github.com/jundot/omlx/pull/3840 "fix(specprefill): derive draft cache position from attention layers") + [#3842](https://github.com/jundot/omlx/pull/3842 "feat(specprefill): preserve draft recurrent state at cache boundaries") — On hybrid attention + recurrent models the SpecPrefill draft cache never produced a usable hit: a restored cache was read as empty, and recurrent state was never saved at block boundaries. Two stacked fixes.
+- **Merged** · [#3664](https://github.com/jundot/omlx/pull/3664 "fix(responses): route namespace tool groups through to the model and back") — The Responses API dropped `namespace` tool groups, the shape Codex uses for MCP servers, so their tools never reached the model. They now round-trip under their namespace.
+- Open · [#3964](https://github.com/jundot/omlx/pull/3964 "feat(specprefill): recover reusable prefix state during idle time") — A sparse prefill leaves no reusable prefix, so an append-heavy session keeps re-prefilling a growing suffix. Rebuilds that state in bounded background slices while the process is idle; off by default.
+- Open · [#3811](https://github.com/jundot/omlx/pull/3811 "fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs") — On mRoPE vision-language models, SpecPrefill wrote every selected token after the first at the wrong position. Selected tokens now keep their original positions.
+<!-- OSS-SELECTED:END -->
 
-My work focuses on turning AI prototypes into systems that are deployable, measurable, permission-aware, and maintainable.
+<sub>Status is generated from GitHub by a weekly workflow. The full record is under
+[More OSS Contributions](#more-oss-contributions).</sub>
 
-My engineering background spans system architecture, backend services, web and mobile applications, cloud infrastructure, DevOps, information security, and machine learning system integration.
+## Featured Systems Work
 
----
+### [laya-apple](https://github.com/tc3oliver/laya-apple) — adaptive heterogeneous inference on Apple silicon
 
-## Featured Work
+Serves [Laya](https://github.com/NandhaKishorM/laya) on the MLX GPU and the Apple Neural Engine
+at the same time, gated on parity with upstream Laya. Its research traced the rise in GPU tail
+latency beside a thread-placed ANE to the finished GPU result waiting for the GIL held by
+synchronous Core ML `predict` (GPU return P50 7.67 → 0.14 ms once released, in a 2×2
+intervention), which led to [apple/coremltools#2876](https://github.com/apple/coremltools/pull/2876).
+v1.5 does not depend on that patch: it runs eligible ANE work through Core ML's asynchronous API,
+detects a host-side slow state from its own request trace, and falls back to the known-safe 1.4
+path. On one M4 Max:
 
-| | |
-|---|---|
-| [**SignalForge**](https://github.com/tc3oliver/signalforge) | Self-hosted intelligence pipeline: multi-source collection, event-centric deduplication, a cross-day story ledger, and a source-grounded daily brief validated by code. Two restricted agent sessions, Postgres, a read-only reader that never calls a model. [Live →](https://signal.meowcoder.com) · [Case study →](https://meowcoder.com/work/signalforge/) |
-| [**AI Coding Skills**](https://github.com/tc3oliver/skills) | Versioned workflows for coding agents: requirement alignment, just-in-time planning, project-detected validation, explicit completion criteria. [Case study →](https://meowcoder.com/work/ai-coding-skills/) |
-| [**Shouri / 收理**](https://shouri.app) | An AI organizer that saves first and structures later, with the original kept as the source of truth. [Case study →](https://meowcoder.com/work/shouri/) |
-| [**version-aware-code-mcp**](https://github.com/tc3oliver/version-aware-code-mcp) | Branch-aware code search plus structural code-graph analysis for coding agents, over MCP. |
+- GPU result return P50 4.28–8.60 → 0.035–0.043 ms against the 1.4 path.
+- 154 production validation episodes; 0 mismatches, routing failures, lost requests or crashes.
+- No slow state occurred in those runs. In a separate controlled test, the fallback recovered
+  12 of 12 slow episodes, back to 1.4 latency within 164–414 ms.
 
----
+[Research map](https://github.com/tc3oliver/laya-apple/blob/main/research/README.md) ·
+[PyPI](https://pypi.org/project/laya-apple/)
 
-## Research
+### [llm-inference-systems](https://github.com/tc3oliver/llm-inference-systems) — reproducible LLM inference systems research
 
-| | |
-|---|---|
-| [**LLM Inference Systems Research**](https://github.com/tc3oliver/llm-inference-systems) | Three completed experiments and three research threads, on one Apple silicon machine. Built a heterogeneous ANE prefill path, attention-based sparse prefill on top of it, and background recovery of reusable cache state with a foreground-priority scheduler. Cold 16K time-to-first-token fell from 57.84 s to 19.24 s — then a request-level trace showed a prefix-cache cliff the sparse path never repaired: the checkpoint stayed pinned at 28,672 tokens for ten requests while the uncached suffix grew to 33,979. Speculative-decoding break-even turned out to be set by verify-cycle cost, not acceptance rate. Most recent: **Progressive Canonical State Recovery** — reusable-state debt, background repayment under foreground-idle windows, and what that background work costs the requests it shares an accelerator with. Current research: Speculative Prefill Admission Economics. [Article →](https://study.meowcoder.com/posts/260921-canonical-state-debt-recovery/) · [Engineering →](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md) · [Case study →](https://meowcoder.com/work/llm-inference-systems/) · [omlx#3756](https://github.com/jundot/omlx/pull/3756) · [omlx#3762](https://github.com/jundot/omlx/pull/3762) · [omlx#3792](https://github.com/jundot/omlx/pull/3792) (three separate correctness/API fixes, all open) · [omlx#3811](https://github.com/jundot/omlx/pull/3811) (a SpecPrefill × mRoPE positional-correctness defect that validating the recovery mechanism exposed and did not cause) · [omlx#3793](https://github.com/jundot/omlx/pull/3793) (the recovery mechanism itself) · [omlx#3840](https://github.com/jundot/omlx/pull/3840) + [omlx#3842](https://github.com/jundot/omlx/pull/3842) (taking that mechanism into a real agent workload turned up two independent SpecPrefill draft-cache defects — a restored hybrid draft cache read as empty, and recurrent state never preserved at a cache boundary; both open, the second stacked on the first) — ten upstream pull requests in all: eight open at the time of writing and none a draft, two merged |
+What an inference optimization leaves behind for the next request. Three experiments with their
+data and figures: a sparse prefill that stops the reusable prefix from advancing, speculative
+decoding whose break-even is set by verify-cycle cost rather than acceptance rate, and background
+recovery of the reusable state. Threads on inference correctness and SpecPrefill admission
+economics continue from them. The recovery mechanism (#3964) and the SpecPrefill fixes above came
+out of this work.
 
----
+[Case study](https://meowcoder.com/work/llm-inference-systems/) ·
+[Engineering](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
-## AI Engineering Focus
+### [version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp) — version-aware code retrieval over MCP
 
-### Agent Platforms
+Confines code search, call-graph queries and source reads to one repository, branch and revision,
+so a coding agent cannot quietly answer from the wrong version. Written in Go.
 
-* Stateful agent workflows and multi-agent orchestration
-* Tool calling, MCP, structured output, and permission control
-* Execution tracing, checkpoints, retries, and failure recovery
+### Other engineering work
 
-### Enterprise Knowledge
+[SignalForge](https://github.com/tc3oliver/signalforge) (self-hosted intelligence pipeline) ·
+[deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x) (vLLM serving
+baseline on AMD MI300X) · [Shouri](https://shouri.app) ·
+[AI Coding Skills](https://github.com/tc3oliver/skills)
 
-* RAG, hybrid retrieval, reranking, and knowledge graphs
-* Code, specification, and cross-repository knowledge integration
-* Citation grounding, source validation, and retrieval evaluation
+## Research & Writing
 
-### Model Infrastructure
+- [study.meowcoder.com](https://study.meowcoder.com) — research notes, in Traditional Chinese.
+  Start with [當 prefill 變快，agent 反而變慢](https://study.meowcoder.com/posts/260920-inference-reusable-state/)
+  and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-canonical-state-debt-recovery/).
+- [laya-apple research map](https://github.com/tc3oliver/laya-apple/blob/main/research/README.md)
+  — the 1.4 → 1.5 line from GIL causality to adaptive fallback, every number linked to its study.
+- [llm-inference-systems](https://github.com/tc3oliver/llm-inference-systems) — experiments,
+  raw data and the evidence map behind them.
 
-* vLLM, ROCm, and OpenAI-compatible model gateways
-* Model routing, quantization, KV cache, and memory optimization
-* Latency, throughput, concurrency, and capacity analysis
+<sub>Python · Objective-C++ · MLX · Core ML · PyTorch · vLLM · ROCm · Go · TypeScript</sub>
 
-### AI-Driven Engineering
+## More OSS Contributions
 
-* AI code review, agentic coding, and CI/CD integration
-* Agent evaluation, regression testing, and observability
-* Runtime security, audit trails, and policy-controlled tool execution
+<!-- OSS-AUTO:START -->
+17 pull requests to projects I don't maintain: 9 merged · 8 open.
 
----
+**Apple coremltools** — 1 open
 
-## AI Platform Architecture
+- ○ [#2876](https://github.com/apple/coremltools/pull/2876) Release the GIL during native MLModel prediction
 
-```text
-Applications and Engineering Workflows
-                  │
-                  ▼
-        Agent Runtime Platform
-                  │
-       ┌──────────┼───────────┐
-       ▼          ▼           ▼
-  Knowledge     Tools      Evaluation
-  Retrieval     and MCP    and Tracing
-       │          │           │
-       └──────────┼───────────┘
-                  ▼
-       Model Gateway and Router
-                  │
-       ┌──────────┴───────────┐
-       ▼                      ▼
- Local Inference        Hosted Models
- vLLM / ROCm            API Providers
-```
+**oMLX** — 5 merged · 6 open
 
-The platform boundary keeps models, retrieval systems, tools, policies, and evaluation components independently replaceable.
+- ✓ [#3685](https://github.com/jundot/omlx/pull/3685) fix(attention): keep SDPA256 prefill on the bounded route
+- ✓ [#3842](https://github.com/jundot/omlx/pull/3842) feat(specprefill): preserve draft recurrent state at cache boundaries
+- ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
+- ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
+- ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
+- ○ [#3964](https://github.com/jundot/omlx/pull/3964) feat(specprefill): recover reusable prefix state during idle time
+- ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
+- ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
+- ○ [#3792](https://github.com/jundot/omlx/pull/3792) fix(specprefill): remove the RoPE patch when a prefill is requeued after OOM
+- ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
+- ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
----
+**Other projects** — 4 merged · 1 open
 
-## Core Technologies
-
-<p>
-  <img src="https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/TypeScript-334155?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/FastAPI-334155?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/LangGraph-334155?style=flat-square" alt="LangGraph"/>
-  <img src="https://img.shields.io/badge/LangChain-334155?style=flat-square" alt="LangChain"/>
-  <img src="https://img.shields.io/badge/MCP-334155?style=flat-square" alt="Model Context Protocol"/>
-  <img src="https://img.shields.io/badge/RAG-334155?style=flat-square" alt="RAG"/>
-  <img src="https://img.shields.io/badge/GraphRAG-334155?style=flat-square" alt="GraphRAG"/>
-  <img src="https://img.shields.io/badge/vLLM-334155?style=flat-square" alt="vLLM"/>
-  <img src="https://img.shields.io/badge/ROCm-334155?style=flat-square&logo=amd&logoColor=white" alt="ROCm"/>
-  <img src="https://img.shields.io/badge/Docker-334155?style=flat-square&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/GitLab%20CI-334155?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab CI"/>
-  <img src="https://img.shields.io/badge/Jenkins-334155?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/Redis-334155?style=flat-square&logo=redis&logoColor=white" alt="Redis"/>
-  <img src="https://img.shields.io/badge/Qdrant-334155?style=flat-square" alt="Qdrant"/>
-  <img src="https://img.shields.io/badge/Neo4j-334155?style=flat-square&logo=neo4j&logoColor=white" alt="Neo4j"/>
-</p>
+- ✓ [NandhaKishorM/laya#260](https://github.com/NandhaKishorM/laya/pull/260) docs: add laya-apple to Community Tools
+- ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
+- ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
+- ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
 <details>
-  <summary><strong>Additional Engineering Experience</strong></summary>
-  <br/>
+<summary>Superseded, not counted</summary>
 
-* **Architecture:** REST, gRPC, API gateways, authentication, RBAC, and asynchronous services
-* **Infrastructure:** Docker, AWS ECS, Terraform, monitoring, and automated deployment
-* **Data:** PostgreSQL, SQL Server, Redis, vector databases, and graph databases
-* **Applications:** Vue, React, PWA, Flutter, native iOS, and native Android
-* **Engineering:** Static analysis, testing, observability, security controls, and release governance
+- [jundot/omlx#3793](https://github.com/jundot/omlx/pull/3793) feat(specprefill): recover reusable prefix state during idle time — replaced by [#3964](https://github.com/jundot/omlx/pull/3964), [#3962](https://github.com/jundot/omlx/pull/3962)
 
 </details>
-
----
-
-## Technical Writing
-
-I publish research notes and technical analysis on [study.meowcoder.com](https://study.meowcoder.com), in Traditional Chinese:
-
-* AI agent architecture and runtime engineering
-* Enterprise RAG and knowledge systems
-* Model inference and serving optimization
-* Agent security and runtime governance
-* AI-assisted software development
-* Software architecture and engineering automation
-
-<p>
-  <a href="https://study.meowcoder.com">
-    <img
-      src="https://img.shields.io/badge/Read%20Technical%20Notes-MeowCoder%20Lab-1e40af?style=flat-square&logo=markdown&logoColor=white"
-      alt="MeowCoder Lab"
-    />
-  </a>
-</p>
-
----
-
-## GitHub Activity
-
-<p align="center">
-  <img
-    src="./github-metrics.svg"
-    width="100%"
-    alt="Oliver Yu GitHub Metrics"
-  />
-</p>
-
----
-
-## Engineering Principles
-
-> Models are replaceable. Runtime boundaries and evaluation loops are architecture.
-
-AI systems should remain:
-
-* **Traceable** — decisions, sources, and execution paths can be inspected
-* **Testable** — retrieval, routing, tools, and outputs can be regression-tested
-* **Replaceable** — models and providers remain interchangeable
-* **Permission-aware** — tool access follows explicit runtime policies
-* **Observable** — quality, latency, cost, usage, and failures remain measurable
-* **Recoverable** — workflows support retries, checkpoints, and controlled failure
-
-<p align="center">
-  <img
-    src="https://capsule-render.vercel.app/api?type=waving&color=0:1e40af,100:0f172a&height=90&section=footer"
-    alt="Footer"
-  />
-</p>
+<!-- OSS-AUTO:END -->
