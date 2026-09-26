@@ -1,0 +1,61 @@
+# Source of truth for the OSS sections of README.md.
+#
+# scripts/update_oss_contributions.py reads this file, queries GitHub for every
+# pull request authored by `author`, and rewrites only the text between the
+# OSS-SELECTED and OSS-AUTO markers in README.md.
+#
+# - `selected` is curated by hand. The script syncs each entry's status, title
+#   and URL, and never adds, removes or reorders entries on its own.
+# - The generated record lists every public pull request outside the author's
+#   own repositories, minus `ignore` and `superseded`.
+
+author = "tc3oliver"
+
+# Display names for the generated record. Repositories listed here get their own
+# group, in this order; every other repository is grouped under "Other projects".
+projects = [
+  { repo = "apple/coremltools", name = "Apple coremltools" },
+  { repo = "jundot/omlx", name = "oMLX" },
+]
+
+# Pull requests left out of the record entirely, e.g. low-signal ones.
+# Format: "owner/repo#number".
+ignore = []
+
+# Pull requests replaced by others. They are not counted and not listed as
+# active; the record keeps them in a collapsed note instead.
+[[superseded]]
+pr = "jundot/omlx#3793"
+replaced_by = ["jundot/omlx#3964", "jundot/omlx#3962"]
+
+# Selected OSS Contributions. `summary` states the systems problem the change
+# solved. Entries render in this order within their project, merged first.
+[[selected]]
+project = "Apple coremltools"
+prs = ["apple/coremltools#2876"]
+summary = "Synchronous `MLModel.predict()` holds the GIL for the entire native Core ML call, blocking other Python threads in the process that need it. Releases it around the native prediction only, with a threading regression test. Came out of the laya-apple GPU + ANE research."
+
+[[selected]]
+project = "oMLX"
+prs = ["jundot/omlx#3685"]
+summary = "The SDPA256 prefill route was chosen from live memory headroom, so an identical request gave different temperature-0 output in different processes. The route now depends on the call shape alone."
+
+[[selected]]
+project = "oMLX"
+prs = ["jundot/omlx#3840", "jundot/omlx#3842"]
+summary = "On hybrid attention + recurrent models the SpecPrefill draft cache never produced a usable hit: a restored cache was read as empty, and recurrent state was never saved at block boundaries. Two stacked fixes."
+
+[[selected]]
+project = "oMLX"
+prs = ["jundot/omlx#3664"]
+summary = "The Responses API dropped `namespace` tool groups, the shape Codex uses for MCP servers, so their tools never reached the model. They now round-trip under their namespace."
+
+[[selected]]
+project = "oMLX"
+prs = ["jundot/omlx#3964"]
+summary = "A sparse prefill leaves no reusable prefix, so an append-heavy session keeps re-prefilling a growing suffix. Rebuilds that state in bounded background slices while the process is idle; off by default."
+
+[[selected]]
+project = "oMLX"
+prs = ["jundot/omlx#3811"]
+summary = "On mRoPE vision-language models, SpecPrefill wrote every selected token after the first at the wrong position. Selected tokens now keep their original positions."
