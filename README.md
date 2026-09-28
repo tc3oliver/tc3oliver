@@ -90,23 +90,24 @@ baseline on AMD MI300X) · [Shouri](https://shouri.app) ·
 ## More OSS Contributions
 
 <!-- OSS-AUTO:START -->
-17 pull requests to projects I don't maintain: 9 merged · 8 open.
+18 pull requests to projects I don't maintain: 9 merged · 9 open.
 
 **Apple coremltools** — 1 open
 
 - ○ [#2876](https://github.com/apple/coremltools/pull/2876) Release the GIL during native MLModel prediction
 
-**oMLX** — 5 merged · 6 open
+**oMLX** — 5 merged · 7 open
 
 - ✓ [#3685](https://github.com/jundot/omlx/pull/3685) fix(attention): keep SDPA256 prefill on the bounded route
 - ✓ [#3842](https://github.com/jundot/omlx/pull/3842) feat(specprefill): preserve draft recurrent state at cache boundaries
 - ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
+- ○ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
 - ○ [#3964](https://github.com/jundot/omlx/pull/3964) feat(specprefill): recover reusable prefix state during idle time
 - ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
-- ○ [#3792](https://github.com/jundot/omlx/pull/3792) fix(specprefill): remove the RoPE patch when a prefill is requeued after OOM
+- ○ [#3792](https://github.com/jundot/omlx/pull/3792) docs(scheduler): fix the SpecPrefill note in the prefill-OOM requeue path
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
