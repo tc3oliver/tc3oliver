@@ -131,7 +131,7 @@ class RenderTest(unittest.TestCase):
     def test_counts_are_computed(self):
         record = self.section("record")
         self.assertIn("6 pull requests to projects I don't maintain: 3 merged · 3 open.", record)
-        self.assertIn("**oMLX** — 2 merged · 2 open", record)
+        self.assertIn("**oMLX** (2 merged · 2 open)", record)
 
     def test_superseded_is_listed_once_and_not_counted(self):
         record = self.section("record")

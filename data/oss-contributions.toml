@@ -33,29 +33,29 @@ replaced_by = ["jundot/omlx#3964", "jundot/omlx#3962"]
 [[selected]]
 project = "Apple coremltools"
 prs = ["apple/coremltools#2876"]
-summary = "Synchronous `MLModel.predict()` holds the GIL for the entire native Core ML call, blocking other Python threads in the process that need it. Releases it around the native prediction only, with a threading regression test. Came out of the laya-apple GPU + ANE research."
+summary = "`MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test. I found this running the GPU and the Neural Engine side by side in laya-apple."
 
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3685"]
-summary = "The SDPA256 prefill route was chosen from live memory headroom, so an identical request gave different temperature-0 output in different processes. The route now depends on the call shape alone."
+summary = "The SDPA256 prefill path was picked by how much memory happened to be free, so the same request could give different temperature-0 output in two processes. Now the choice depends only on the input shape."
 
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3840", "jundot/omlx#3842"]
-summary = "On hybrid attention + recurrent models the SpecPrefill draft cache never produced a usable hit: a restored cache was read as empty, and recurrent state was never saved at block boundaries. Two stacked fixes."
+summary = "On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries. Fixed in two PRs."
 
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3664"]
-summary = "The Responses API dropped `namespace` tool groups, the shape Codex uses for MCP servers, so their tools never reached the model. They now round-trip under their namespace."
+summary = "The Responses API dropped `namespace` tool groups, which is how Codex passes MCP tools, so the model never saw them."
 
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3964"]
-summary = "A sparse prefill leaves no reusable prefix, so an append-heavy session keeps re-prefilling a growing suffix. Rebuilds that state in bounded background slices while the process is idle; off by default."
+summary = "After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state in small chunks while the server is idle. Off by default."
 
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3811"]
-summary = "On mRoPE vision-language models, SpecPrefill wrote every selected token after the first at the wrong position. Selected tokens now keep their original positions."
+summary = "On mRoPE vision-language models, SpecPrefill put every selected token after the first one at the wrong position."

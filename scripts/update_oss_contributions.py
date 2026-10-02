@@ -260,7 +260,7 @@ def render_selected(config: dict, prs: dict[str, PR]) -> str:
                 f'[#{pr.number}]({pr.url} "{link_title(pr.title)}")' for pr in members
             )
             rendered.append(
-                (merged != len(members), position, f"- {status} · {links} — {entry['summary']}")
+                (merged != len(members), position, f"- {status} · {links}: {entry['summary']}")
             )
         lines += [line for _, _, line in sorted(rendered)]
         blocks.append("\n".join(lines))
@@ -283,7 +283,7 @@ def render_record(config: dict, prs: dict[str, PR]) -> str:
         members = ordered(groups[name])
         if not members:
             continue
-        lines += ["", f"**{name}** — {counts(members)}", ""]
+        lines += ["", f"**{name}** ({counts(members)})", ""]
         for pr in members:
             mark = "✓" if pr.merged else "○"
             draft = " (draft)" if pr.draft else ""
@@ -297,7 +297,7 @@ def render_record(config: dict, prs: dict[str, PR]) -> str:
         for entry in sorted(superseded, key=lambda e: e["pr"]):
             pr = prs[entry["pr"]]
             replacements = ", ".join(_link(prs[key], False) for key in entry["replaced_by"])
-            lines.append(f"- {_link(pr, True)} {md_escape(pr.title)} — replaced by {replacements}")
+            lines.append(f"- {_link(pr, True)} {md_escape(pr.title)}, replaced by {replacements}")
         lines += ["", "</details>"]
     return "\n".join(lines)
 
