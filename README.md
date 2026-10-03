@@ -49,22 +49,28 @@ reusable state in the background. The SpecPrefill PRs above came out of this wor
 [Case study](https://meowcoder.com/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
+**[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval)**: a
+pre-registered evaluation of a 27B model on one 16 GB RTX 5070 Ti, with raw data and graders. It
+scores 92.1 % on HumanEval+. The first competitor spilled out of VRAM mid-run, so I voided that
+run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error, then
+decoded a test request at 5.9 tok/s: some of the memory had apparently landed in system RAM,
+without a warning.
+[Article](https://study.meowcoder.com/posts/261003-qwen38-27b-5070ti-round1/) ·
+[Evidence index](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval/blob/main/EVIDENCE-INDEX.md)
+
 **[PiShip](https://github.com/tc3oliver/piship)**: lets a company ship
 [Pi](https://github.com/earendil-works/pi) as its own coding agent without forking it. Pi keeps
 the agent loop and tools. PiShip adds what a company needs around them: OIDC login, short-lived
 credentials for an internal LLM gateway, policy, MCP rules and a sandbox. If a required sandbox
-can't start, the command doesn't run. Still pre-release (v0.7.1); the login-to-gateway flow is
-tested nightly against Keycloak and LiteLLM. TypeScript.
+can't start, the command doesn't run. Still pre-release (v0.7.1). TypeScript.
 [Status](https://github.com/tc3oliver/piship/blob/main/docs/status.md) ·
 [Enterprise integration](https://github.com/tc3oliver/piship/blob/main/docs/enterprise-integration.md)
 
-**[version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp)**: an MCP server
-that pins code search, call graphs and file reads to one repo, branch and commit, so a coding
-agent can't answer from the wrong version. Go.
-
 Smaller things: [SignalForge](https://github.com/tc3oliver/signalforge), a self-hosted
-intelligence pipeline; [deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x),
-a vLLM serving baseline on AMD MI300X; [Shouri](https://shouri.app);
+intelligence pipeline; [version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp),
+an MCP server that keeps a coding agent's code search on the right commit;
+[deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
+baseline on AMD MI300X; [Shouri](https://shouri.app);
 [my coding-agent skills](https://github.com/tc3oliver/skills).
 
 ## Writing
