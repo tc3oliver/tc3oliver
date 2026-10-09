@@ -61,9 +61,8 @@ without a warning.
 [Pi](https://github.com/earendil-works/pi) as its own coding agent without forking it. Pi keeps
 the agent loop and tools; PiShip adds OIDC login, short-lived credentials for an internal LLM
 gateway, policy, MCP rules and a sandbox. If a required sandbox can't start, the command doesn't
-run. v0.13.0, pre-release: nine attested archives (three example distributions
-on Linux, macOS and Windows), all nine rebuilding to the same payload, and the status page lists
-what is not verified yet. TypeScript.
+run. Pre-release. Every archive in a release is attested and built twice to check that the
+payloads match, and the status page lists what is not verified yet. TypeScript.
 [Status](https://github.com/tc3oliver/piship/blob/main/docs/status.md) ·
 [Enterprise integration](https://github.com/tc3oliver/piship/blob/main/docs/enterprise-integration.md)
 
@@ -73,8 +72,8 @@ an MCP server that keeps a coding agent's code search on the right commit;
 [deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
 baseline on AMD MI300X;
 [claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that puts a
-hard limit on agent-team workers and shows them live in a Mission Control pane (v0.1.1,
-pre-release); [Shouri](https://shouri.app);
+hard limit on agent-team workers and shows them live in a Mission Control pane
+(pre-release); [Shouri](https://shouri.app);
 [my coding-agent skills](https://github.com/tc3oliver/skills).
 
 ## Writing
