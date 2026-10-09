@@ -3,8 +3,8 @@
 I work on LLM inference, mostly on Apple silicon with MLX, Core ML and the Neural Engine. A lot
 of that is measuring runtimes: how well the cache gets reused, what happens under concurrency,
 whether the same request gives the same output, where the latency actually goes. When I find a
-bug in something I depend on, I send the fix upstream. So far that has been oMLX and Apple's
-coremltools.
+bug in something I depend on, I send the fix upstream. So far that has been oMLX (over 22k
+stars) and Apple's coremltools, plus one open fix to MLX.
 
 [meowcoder.com](https://meowcoder.com) · [Research notes](https://study.meowcoder.com) ·
 [tc3oliver@gmail.com](mailto:tc3oliver@gmail.com)
@@ -14,15 +14,14 @@ coremltools.
 <!-- OSS-SELECTED:START -->
 **Apple coremltools**
 
-- Open · [#2876](https://github.com/apple/coremltools/pull/2876 "Release the GIL during native MLModel prediction"): `MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test. I found this running the GPU and the Neural Engine side by side in laya-apple.
+- Open · [#2876](https://github.com/apple/coremltools/pull/2876 "Release the GIL during native MLModel prediction"): `MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test.
 
 **oMLX**
 
 - **Merged** · [#3685](https://github.com/jundot/omlx/pull/3685 "fix(attention): keep SDPA256 prefill on the bounded route"): The SDPA256 prefill path was picked by how much memory happened to be free, so the same request could give different temperature-0 output in two processes. Now the choice depends only on the input shape.
-- **Merged** · [#3840](https://github.com/jundot/omlx/pull/3840 "fix(specprefill): derive draft cache position from attention layers") + [#3842](https://github.com/jundot/omlx/pull/3842 "feat(specprefill): preserve draft recurrent state at cache boundaries"): On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries. Fixed in two PRs.
+- **Merged** · [#3840](https://github.com/jundot/omlx/pull/3840 "fix(specprefill): derive draft cache position from attention layers") + [#3842](https://github.com/jundot/omlx/pull/3842 "feat(specprefill): preserve draft recurrent state at cache boundaries"): On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries.
 - **Merged** · [#3664](https://github.com/jundot/omlx/pull/3664 "fix(responses): route namespace tool groups through to the model and back"): The Responses API dropped `namespace` tool groups, which is how Codex passes MCP tools, so the model never saw them.
-- Open · [#3964](https://github.com/jundot/omlx/pull/3964 "feat(specprefill): recover reusable prefix state during idle time"): After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state in small chunks while the server is idle. Off by default.
-- Open · [#3811](https://github.com/jundot/omlx/pull/3811 "fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs"): On mRoPE vision-language models, SpecPrefill put every selected token after the first one at the wrong position.
+- Open · [#3964](https://github.com/jundot/omlx/pull/3964 "feat(specprefill): recover reusable prefix state during idle time"): After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state while the server is idle.
 <!-- OSS-SELECTED:END -->
 
 <sub>Status is synced from GitHub every week. Everything else is in
@@ -60,9 +59,11 @@ without a warning.
 
 **[PiShip](https://github.com/tc3oliver/piship)**: lets a company ship
 [Pi](https://github.com/earendil-works/pi) as its own coding agent without forking it. Pi keeps
-the agent loop and tools. PiShip adds what a company needs around them: OIDC login, short-lived
-credentials for an internal LLM gateway, policy, MCP rules and a sandbox. If a required sandbox
-can't start, the command doesn't run. Still pre-release (v0.7.1). TypeScript.
+the agent loop and tools; PiShip adds OIDC login, short-lived credentials for an internal LLM
+gateway, policy, MCP rules and a sandbox. If a required sandbox can't start, the command doesn't
+run. v0.13.0, pre-release: nine attested archives (three example distributions
+on Linux, macOS and Windows), all nine rebuilding to the same payload, and the status page lists
+what is not verified yet. TypeScript.
 [Status](https://github.com/tc3oliver/piship/blob/main/docs/status.md) ·
 [Enterprise integration](https://github.com/tc3oliver/piship/blob/main/docs/enterprise-integration.md)
 
@@ -70,7 +71,9 @@ Smaller things: [SignalForge](https://github.com/tc3oliver/signalforge), a self-
 intelligence pipeline; [version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp),
 an MCP server that keeps a coding agent's code search on the right commit;
 [deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
-baseline on AMD MI300X; [Shouri](https://shouri.app);
+baseline on AMD MI300X;
+[claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that puts a
+hard limit on agent-team workers and shows them live (v0.1.1, pre-release); [Shouri](https://shouri.app);
 [my coding-agent skills](https://github.com/tc3oliver/skills).
 
 ## Writing

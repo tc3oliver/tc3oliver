@@ -33,7 +33,7 @@ replaced_by = ["jundot/omlx#3964", "jundot/omlx#3962"]
 [[selected]]
 project = "Apple coremltools"
 prs = ["apple/coremltools#2876"]
-summary = "`MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test. I found this running the GPU and the Neural Engine side by side in laya-apple."
+summary = "`MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test."
 
 [[selected]]
 project = "oMLX"
@@ -43,7 +43,7 @@ summary = "The SDPA256 prefill path was picked by how much memory happened to be
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3840", "jundot/omlx#3842"]
-summary = "On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries. Fixed in two PRs."
+summary = "On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries."
 
 [[selected]]
 project = "oMLX"
@@ -53,9 +53,4 @@ summary = "The Responses API dropped `namespace` tool groups, which is how Codex
 [[selected]]
 project = "oMLX"
 prs = ["jundot/omlx#3964"]
-summary = "After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state in small chunks while the server is idle. Off by default."
-
-[[selected]]
-project = "oMLX"
-prs = ["jundot/omlx#3811"]
-summary = "On mRoPE vision-language models, SpecPrefill put every selected token after the first one at the wrong position."
+summary = "After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state while the server is idle."
