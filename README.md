@@ -73,7 +73,8 @@ an MCP server that keeps a coding agent's code search on the right commit;
 [deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
 baseline on AMD MI300X;
 [claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that puts a
-hard limit on agent-team workers and shows them live (v0.1.1, pre-release); [Shouri](https://shouri.app);
+hard limit on agent-team workers and shows them live in a Mission Control pane (v0.1.1,
+pre-release); [Shouri](https://shouri.app);
 [my coding-agent skills](https://github.com/tc3oliver/skills).
 
 ## Writing
