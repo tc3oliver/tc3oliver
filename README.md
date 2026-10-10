@@ -3,8 +3,8 @@
 I work on LLM inference, mostly on Apple silicon with MLX, Core ML and the Neural Engine. A lot
 of that is measuring runtimes: how well the cache gets reused, what happens under concurrency,
 whether the same request gives the same output, where the latency actually goes. When I find a
-bug in something I depend on, I send the fix upstream. So far that has been oMLX (over 22k
-stars) and Apple's coremltools, plus one open fix to MLX.
+bug in something I depend on, I send the fix upstream — including to MLX, oMLX,
+and Apple's coremltools.
 
 [meowcoder.com](https://meowcoder.com) · [Research notes](https://study.meowcoder.com) ·
 [tc3oliver@gmail.com](mailto:tc3oliver@gmail.com)
@@ -15,6 +15,10 @@ stars) and Apple's coremltools, plus one open fix to MLX.
 **Apple coremltools**
 
 - Open · [#2876](https://github.com/apple/coremltools/pull/2876 "Release the GIL during native MLModel prediction"): `MLModel.predict()` held the GIL for the whole native Core ML call, so other Python threads in the process stalled behind it. The patch releases it around the native call, with a threading test.
+
+**MLX**
+
+- **Merged** · [#4615](https://github.com/ml-explore/mlx/pull/4615 "Fix lost rank output in the distributed launcher"): The distributed launcher could lose a rank's final output when the process exited before its pipes were drained. The fix reads both pipes to EOF without blocking.
 
 **oMLX**
 
@@ -86,11 +90,15 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-20 pull requests to projects I don't maintain: 10 merged · 10 open.
+20 pull requests to projects I don't maintain: 11 merged · 9 open.
 
 **Apple coremltools** (1 open)
 
 - ○ [#2876](https://github.com/apple/coremltools/pull/2876) Release the GIL during native MLModel prediction
+
+**MLX** (1 merged)
+
+- ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
 **oMLX** (6 merged · 7 open)
 
@@ -108,13 +116,12 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (4 merged · 2 open)
+**Other projects** (4 merged · 1 open)
 
 - ✓ [NandhaKishorM/laya#260](https://github.com/NandhaKishorM/laya/pull/260) docs: add laya-apple to Community Tools
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
-- ○ [ml-explore/mlx#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 - ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
 <details>
