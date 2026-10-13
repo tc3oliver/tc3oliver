@@ -58,5 +58,5 @@ summary = "The Responses API dropped `namespace` tool groups, which is how Codex
 
 [[selected]]
 project = "oMLX"
-prs = ["jundot/omlx#3964"]
-summary = "After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state while the server is idle."
+prs = ["jundot/omlx#4035"]
+summary = "After a failed SpecPrefill request, stale state could hang the engine or make the retry prefill the wrong tokens."

@@ -25,10 +25,10 @@ and Apple's coremltools.
 - **Merged** · [#3685](https://github.com/jundot/omlx/pull/3685 "fix(attention): keep SDPA256 prefill on the bounded route"): The SDPA256 prefill path was picked by how much memory happened to be free, so the same request could give different temperature-0 output in two processes. Now the choice depends only on the input shape.
 - **Merged** · [#3840](https://github.com/jundot/omlx/pull/3840 "fix(specprefill): derive draft cache position from attention layers") + [#3842](https://github.com/jundot/omlx/pull/3842 "feat(specprefill): preserve draft recurrent state at cache boundaries"): On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries.
 - **Merged** · [#3664](https://github.com/jundot/omlx/pull/3664 "fix(responses): route namespace tool groups through to the model and back"): The Responses API dropped `namespace` tool groups, which is how Codex passes MCP tools, so the model never saw them.
-- Open · [#3964](https://github.com/jundot/omlx/pull/3964 "feat(specprefill): recover reusable prefix state during idle time"): After a sparse prefill there is no reusable prefix, so a long append-only session keeps re-prefilling more and more. This rebuilds that state while the server is idle.
+- **Merged** · [#4035](https://github.com/jundot/omlx/pull/4035 "fix(scheduler): clear SpecPrefill state after failures and cache rejects"): After a failed SpecPrefill request, stale state could hang the engine or make the retry prefill the wrong tokens.
 <!-- OSS-SELECTED:END -->
 
-<sub>Status is synced from GitHub every week. Everything else is in
+<sub>Status syncs from GitHub weekly. The rest:
 [All upstream pull requests](#all-upstream-pull-requests).</sub>
 
 ## Projects
@@ -45,10 +45,10 @@ M4 Max, median GPU result return dropped from 4–9 ms to about 0.04 ms, with no
 [PyPI](https://pypi.org/project/laya-apple/)
 
 **[llm-inference-systems](https://github.com/tc3oliver/llm-inference-systems)**: experiments on
-what an inference optimization costs the requests after it. Three so far, each with its data and
-plots: a sparse prefill that stops the reusable prefix from growing, speculative decoding where
-verify cost decides whether it pays off more than acceptance rate does, and rebuilding the
-reusable state in the background. The SpecPrefill PRs above came out of this work.
+what inference optimizations cost later requests: a sparse prefill that stops the reusable prefix
+growing, speculative decoding where verify cost matters more than acceptance rate, and rebuilding
+the reusable state in the background. The oMLX maintainer closed my pull request (#3964) without
+merging, arguing recovery at best matches SpecPrefill off; I never ran a clean off to compare against.
 [Case study](https://meowcoder.com/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
@@ -90,7 +90,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-20 pull requests to projects I don't maintain: 11 merged · 9 open.
+21 pull requests to projects I don't maintain: 11 merged · 10 open.
 
 **Apple coremltools** (1 open)
 
@@ -100,7 +100,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (6 merged · 7 open)
+**oMLX** (6 merged · 8 open)
 
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
 - ✓ [#3685](https://github.com/jundot/omlx/pull/3685) fix(attention): keep SDPA256 prefill on the bounded route
@@ -108,8 +108,9 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
+- ○ [#4500](https://github.com/jundot/omlx/pull/4500) perf(mtp): let greedy chains draft through the coarse lm\_head (opt-in)
+- ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
 - ○ [#4215](https://github.com/jundot/omlx/pull/4215) fix(mtp): keep greedy Qwen3.5 verify independent of the draft depth
-- ○ [#3964](https://github.com/jundot/omlx/pull/3964) feat(specprefill): recover reusable prefix state during idle time
 - ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
 - ○ [#3792](https://github.com/jundot/omlx/pull/3792) docs(scheduler): fix the SpecPrefill note in the prefill-OOM requeue path
