@@ -34,13 +34,12 @@ and Apple's coremltools.
 ## Projects
 
 **[laya-apple](https://github.com/tc3oliver/laya-apple)**: runs
-[Laya](https://github.com/NandhaKishorM/laya) on the MLX GPU and the Neural Engine at the same
-time, with every output checked against upstream Laya. While profiling it I saw GPU tail latency
-climb whenever the Neural Engine was busy. The cause was Core ML's synchronous `predict` holding
-the GIL, and that became the coremltools patch above. v1.5 doesn't wait for the patch to land: it
-uses Core ML's async API, and if it detects the slow state it falls back to the 1.4 path. On an
-M4 Max, median GPU result return dropped from 4–9 ms to about 0.04 ms, with no mismatches across
-154 validation runs.
+[Laya](https://github.com/NandhaKishorM/laya) on the MLX GPU and the Neural Engine
+concurrently, with every output checked against upstream Laya. Profiling showed GPU tail latency climbing
+whenever the Neural Engine ran; tracing it led to the coremltools patch above. laya-apple
+uses Core ML's async API instead of waiting for the patch, and falls back to its earlier path if
+it detects the slow state. Median GPU result return on an M4 Max went from 4–9 ms to about
+0.04 ms, with no mismatches across 154 validation runs.
 [Research notes](https://github.com/tc3oliver/laya-apple/blob/main/research/README.md) ·
 [PyPI](https://pypi.org/project/laya-apple/)
 
@@ -52,12 +51,17 @@ merging, arguing recovery at best matches SpecPrefill off; I never ran a clean o
 [Case study](https://meowcoder.com/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
+**[Embed2ASR](https://github.com/tc3oliver/embed2asr)**: speech recognition from a frozen
+EmbeddingGemma 2 audio encoder and a small trained reader. On one MI300X it was 4.16× faster than
+Whisper large-v3 and less accurate on 11 of 14 test subsets.
+[Case study](https://meowcoder.com/work/embed2asr/) ·
+[Write-up](https://study.meowcoder.com/posts/261016-embed2asr-frozen-encoder/)
+
 **[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval)**: a
 pre-registered evaluation of a 27B model on one 16 GB RTX 5070 Ti, with raw data and graders. It
 scores 92.1 % on HumanEval+. The first competitor spilled out of VRAM mid-run, so I voided that
 run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error, then
-decoded a test request at 5.9 tok/s: some of the memory had apparently landed in system RAM,
-without a warning.
+decoded one test request at 5.9 tok/s, apparently because some memory had landed in system RAM.
 [Article](https://study.meowcoder.com/posts/261003-qwen38-27b-5070ti-round1/) ·
 [Evidence index](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval/blob/main/EVIDENCE-INDEX.md)
 
@@ -65,8 +69,8 @@ without a warning.
 [Pi](https://github.com/earendil-works/pi) as its own coding agent without forking it. Pi keeps
 the agent loop and tools; PiShip adds OIDC login, short-lived credentials for an internal LLM
 gateway, policy, MCP rules and a sandbox. If a required sandbox can't start, the command doesn't
-run. Pre-release. Every archive in a release is attested and built twice to check that the
-payloads match, and the status page lists what is not verified yet. TypeScript.
+run. Pre-release; every release archive is attested and built twice to check that the
+payloads match. TypeScript.
 [Status](https://github.com/tc3oliver/piship/blob/main/docs/status.md) ·
 [Enterprise integration](https://github.com/tc3oliver/piship/blob/main/docs/enterprise-integration.md)
 
@@ -75,8 +79,8 @@ intelligence pipeline; [version-aware-code-mcp](https://github.com/tc3oliver/ver
 an MCP server that keeps a coding agent's code search on the right commit;
 [deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
 baseline on AMD MI300X;
-[claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that caps
-how many agent-team workers run at once and shows them live in a Mission Control pane
+[claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that limits
+concurrent agent-team workers and shows them in a Mission Control pane
 (pre-release); [Shouri](https://shouri.app);
 [my coding-agent skills](https://github.com/tc3oliver/skills).
 
