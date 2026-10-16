@@ -51,9 +51,9 @@ merging, arguing recovery at best matches SpecPrefill off; I never ran a clean o
 [Case study](https://meowcoder.com/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
-**[Embed2ASR](https://github.com/tc3oliver/embed2asr)**: speech recognition from a frozen
-EmbeddingGemma 2 audio encoder and a small trained reader. On one MI300X it was 4.16× faster than
-Whisper large-v3 and less accurate on 11 of 14 test subsets.
+**[Embed2ASR](https://github.com/tc3oliver/embed2asr)**: a small reader trained on a frozen
+EmbeddingGemma 2 audio encoder transcribes Mandarin, English and code-switched speech. On one MI300X it ran 4.16× faster than Whisper large-v3,
+which wins on most test sets.
 [Case study](https://meowcoder.com/work/embed2asr/) ·
 [Write-up](https://study.meowcoder.com/posts/261016-embed2asr-frozen-encoder/)
 
