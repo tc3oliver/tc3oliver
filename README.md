@@ -94,7 +94,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-21 pull requests to projects I don't maintain: 11 merged · 10 open.
+20 pull requests to projects I don't maintain: 11 merged · 9 open.
 
 **Apple coremltools** (1 open)
 
@@ -104,7 +104,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (6 merged · 8 open)
+**oMLX** (6 merged · 7 open)
 
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
 - ✓ [#3685](https://github.com/jundot/omlx/pull/3685) fix(attention): keep SDPA256 prefill on the bounded route
@@ -117,7 +117,6 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#4215](https://github.com/jundot/omlx/pull/4215) fix(mtp): keep greedy Qwen3.5 verify independent of the draft depth
 - ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
-- ○ [#3792](https://github.com/jundot/omlx/pull/3792) docs(scheduler): fix the SpecPrefill note in the prefill-OOM requeue path
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
