@@ -94,7 +94,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-20 pull requests to projects I don't maintain: 11 merged · 9 open.
+27 pull requests to projects I don't maintain: 13 merged · 14 open.
 
 **Apple coremltools** (1 open)
 
@@ -120,12 +120,19 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (4 merged · 1 open)
+**Other projects** (6 merged · 6 open)
 
+- ✓ [api7/aisix#1348](https://github.com/api7/aisix/pull/1348) refactor(bedrock): send Converse request bodies with a stable key order
+- ✓ [ROCm/aiter#6693](https://github.com/ROCm/aiter/pull/6693) \[Config\] Qwen3.8-Flash-Next FP8 fused-MoE tuned configs for gfx942 (MI325X, 304 CUs)
 - ✓ [NandhaKishorM/laya#260](https://github.com/NandhaKishorM/laya/pull/260) docs: add laya-apple to Community Tools
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
+- ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
+- ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Use BLOCK\_N=32 for sparse GQA prefill on gfx942
+- ○ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
+- ○ [ROCm/aiter#6692](https://github.com/ROCm/aiter/pull/6692) \[CK\] \[Bugfix\] FMoE tuner: use all sources for shapes FlyDSL v2 cannot tune
 - ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
 <details>
