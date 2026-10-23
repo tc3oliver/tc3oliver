@@ -179,10 +179,31 @@ class SafetyTest(unittest.TestCase):
         with self.assertRaises(oss.UpdateError):
             oss.render_readme(README, CONFIG, [])
 
-    def test_selected_closed_pr_fails(self):
-        config = dict(CONFIG, selected=[{"project": "oMLX", "prs": ["up/omlx#15"], "summary": "x"}])
-        with self.assertRaises(oss.UpdateError):
-            oss.render_readme(README, config, NODES)
+    def test_selected_closed_pr_is_left_out_not_fatal(self):
+        import contextlib
+        import io
+
+        selected = [
+            {"project": "oMLX", "prs": ["up/omlx#15"], "summary": "only-closed"},
+            {"project": "oMLX", "prs": ["up/omlx#10", "up/omlx#15"], "summary": "mixed"},
+        ]
+        err = io.StringIO()
+        with contextlib.redirect_stderr(err):
+            out = oss.render_readme(README, dict(CONFIG, selected=selected), NODES)
+        self.assertNotIn("only-closed", out)
+        self.assertIn("mixed", out)
+        self.assertNotIn("pull/15)", out.split("<!-- OSS-AUTO:START -->")[0])
+        self.assertIn("**Merged**", out)
+        self.assertIn("up/omlx#15 is selected but closed", err.getvalue())
+
+    def test_group_with_only_closed_entries_is_dropped(self):
+        import contextlib
+        import io
+
+        selected = [{"project": "Gone", "prs": ["up/omlx#15"], "summary": "x"}]
+        with contextlib.redirect_stderr(io.StringIO()):
+            out = oss.render_readme(README, dict(CONFIG, selected=selected), NODES)
+        self.assertNotIn("**Gone**", out)
 
 
 class CommandLineTest(unittest.TestCase):

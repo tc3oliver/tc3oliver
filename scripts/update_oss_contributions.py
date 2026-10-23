@@ -170,11 +170,9 @@ def validate_config(config: dict, prs: dict[str, PR]) -> None:
             _require(prs, key, f"replacement for {entry['pr']}")
     for entry in config.get("selected", []):
         for key in entry["prs"]:
-            pr = _require(prs, key, "selected")
+            _require(prs, key, "selected")
             if key in superseded or key in ignored:
                 raise UpdateError(f"{key} is selected but also superseded or ignored")
-            if pr.state == "CLOSED":
-                raise UpdateError(f"{key} is selected but closed without merging")
 
 
 def active_record(config: dict, prs: dict[str, PR]) -> list[PR]:
@@ -239,16 +237,29 @@ def _link(pr: PR, qualified: bool) -> str:
     return f"[{label}]({pr.url})"
 
 
+def live_members(entry: dict, prs: dict[str, PR]) -> list[PR]:
+    """The entry's PRs that are not closed. A closed one is left out, not an error:
+    one rejected PR must not stop the whole record from updating."""
+    members = []
+    for key in entry["prs"]:
+        if prs[key].state == "CLOSED":
+            print(f"warning: {key} is selected but closed without merging; leaving it out", file=sys.stderr)
+        else:
+            members.append(prs[key])
+    return members
+
+
 def render_selected(config: dict, prs: dict[str, PR]) -> str:
-    groups: dict[str, list[dict]] = {}
+    groups: dict[str, list[tuple[dict, list[PR]]]] = {}
     for entry in config.get("selected", []):
-        groups.setdefault(entry["project"], []).append(entry)
+        members = live_members(entry, prs)
+        if members:
+            groups.setdefault(entry["project"], []).append((entry, members))
     blocks = []
     for project, entries in groups.items():
         lines = [f"**{project}**", ""]
         rendered = []
-        for position, entry in enumerate(entries):
-            members = [prs[key] for key in entry["prs"]]
+        for position, (entry, members) in enumerate(entries):
             merged = sum(pr.merged for pr in members)
             if merged == len(members):
                 status = "**Merged**"

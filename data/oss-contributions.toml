@@ -5,7 +5,9 @@
 # OSS-SELECTED and OSS-AUTO markers in README.md.
 #
 # - `selected` is curated by hand. The script syncs each entry's status, title
-#   and URL, and never adds, removes or reorders entries on its own.
+#   and URL, and never adds, removes or reorders entries on its own. A PR that was
+#   closed without merging is left out of the rendered list with a warning; the
+#   entry stays here until you delete it.
 # - The generated record lists every public pull request outside the author's
 #   own repositories, minus `ignore` and `superseded`.
 
