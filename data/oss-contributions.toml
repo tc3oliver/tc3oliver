@@ -60,3 +60,13 @@ summary = "The Responses API dropped `namespace` tool groups, which is how Codex
 project = "oMLX"
 prs = ["jundot/omlx#4035"]
 summary = "After a failed SpecPrefill request, stale state could hang the engine or make the retry prefill the wrong tokens."
+
+[[selected]]
+project = "ROCm AITER"
+prs = ["ROCm/aiter#6693"]
+summary = "Qwen3.8-Flash-Next FP8 fused MoE had no tuned rows for MI325X (gfx942, 304 CUs) and ran the default configs. The patch adds eight tuned rows: 3.7–13% less fused-MoE time on those shapes in the tuner's compare report. End to end, cold prefill moved +0.8%; decode mostly doesn't hit the new rows."
+
+[[selected]]
+project = "vLLM"
+prs = ["vllm-project/vllm#62589"]
+summary = "The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. An independent tester measured 1.61× geometric-mean output throughput over 12 cases on MI355X, on the first revision."

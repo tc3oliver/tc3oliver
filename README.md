@@ -3,8 +3,8 @@
 I work on LLM inference, mostly on Apple silicon with MLX, Core ML and the Neural Engine. A lot
 of that is measuring runtimes: how well the cache gets reused, what happens under concurrency,
 whether the same request gives the same output, where the latency actually goes. When I find a
-bug in something I depend on, I send the fix upstream — including to MLX, oMLX,
-and Apple's coremltools.
+bug in something I depend on, I send the fix upstream — including to MLX, oMLX, ROCm AITER,
+vLLM and Apple's coremltools.
 
 [meowcoder.com](https://meowcoder.com) · [Research notes](https://study.meowcoder.com) ·
 [tc3oliver@gmail.com](mailto:tc3oliver@gmail.com)
@@ -26,9 +26,17 @@ and Apple's coremltools.
 - **Merged** · [#3840](https://github.com/jundot/omlx/pull/3840 "fix(specprefill): derive draft cache position from attention layers") + [#3842](https://github.com/jundot/omlx/pull/3842 "feat(specprefill): preserve draft recurrent state at cache boundaries"): On hybrid attention/recurrent models the SpecPrefill draft cache never hit: a restored cache looked empty, and recurrent state wasn't saved at block boundaries.
 - **Merged** · [#3664](https://github.com/jundot/omlx/pull/3664 "fix(responses): route namespace tool groups through to the model and back"): The Responses API dropped `namespace` tool groups, which is how Codex passes MCP tools, so the model never saw them.
 - **Merged** · [#4035](https://github.com/jundot/omlx/pull/4035 "fix(scheduler): clear SpecPrefill state after failures and cache rejects"): After a failed SpecPrefill request, stale state could hang the engine or make the retry prefill the wrong tokens.
+
+**ROCm AITER**
+
+- **Merged** · [#6693](https://github.com/ROCm/aiter/pull/6693 "[Config] Qwen3.8-Flash-Next FP8 fused-MoE tuned configs for gfx942 (MI325X, 304 CUs)"): Qwen3.8-Flash-Next FP8 fused MoE had no tuned rows for MI325X (gfx942, 304 CUs) and ran the default configs. The patch adds eight tuned rows: 3.7–13% less fused-MoE time on those shapes in the tuner's compare report. End to end, cold prefill moved +0.8%; decode mostly doesn't hit the new rows.
+
+**vLLM**
+
+- Open · [#62589](https://github.com/vllm-project/vllm/pull/62589 "[ROCm][Perf][Qwen4Exp] Tile QSA indexer scoring and skip invisible columns"): The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. An independent tester measured 1.61× geometric-mean output throughput over 12 cases on MI355X, on the first revision.
 <!-- OSS-SELECTED:END -->
 
-<sub>Status syncs from GitHub weekly. The rest:
+<sub>Status syncs from GitHub daily. The rest:
 [All upstream pull requests](#all-upstream-pull-requests).</sub>
 
 ## Projects
@@ -60,8 +68,8 @@ which wins on most test sets.
 **[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval)**: a
 pre-registered evaluation of a 27B model on one 16 GB RTX 5070 Ti, with raw data and graders. It
 scores 92.1 % on HumanEval+. The first competitor spilled out of VRAM mid-run, so I voided that
-run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error, then
-decoded one test request at 5.9 tok/s, apparently because some memory had landed in system RAM.
+run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error but
+decoded at 5.9 tok/s, apparently because some memory had landed in system RAM.
 [Article](https://study.meowcoder.com/posts/261003-qwen38-27b-5070ti-round1/) ·
 [Evidence index](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval/blob/main/EVIDENCE-INDEX.md)
 
