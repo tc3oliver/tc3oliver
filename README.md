@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-27 pull requests to projects I don't maintain: 13 merged · 14 open.
+30 pull requests to projects I don't maintain: 13 merged · 17 open.
 
 **Apple coremltools** (1 open)
 
@@ -128,7 +128,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (6 merged · 6 open)
+**Other projects** (6 merged · 9 open)
 
 - ✓ [api7/aisix#1348](https://github.com/api7/aisix/pull/1348) refactor(bedrock): send Converse request bodies with a stable key order
 - ✓ [ROCm/aiter#6693](https://github.com/ROCm/aiter/pull/6693) \[Config\] Qwen3.8-Flash-Next FP8 fused-MoE tuned configs for gfx942 (MI325X, 304 CUs)
@@ -136,6 +136,9 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [recursive-oss/rec#23](https://github.com/recursive-oss/rec/pull/23) Replace the vocabulary sorts in top\_p/top\_k sampling with a candidate kernel (draft)
+- ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention (draft)
+- ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention (draft)
 - ○ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
 - ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Use BLOCK\_N=32 for sparse GQA prefill on gfx942
