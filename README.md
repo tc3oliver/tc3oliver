@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-30 pull requests to projects I don't maintain: 13 merged · 17 open.
+33 pull requests to projects I don't maintain: 13 merged · 20 open.
 
 **Apple coremltools** (1 open)
 
@@ -120,15 +120,15 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
+- ○ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ○ [#4500](https://github.com/jundot/omlx/pull/4500) perf(mtp): let greedy chains draft through the coarse lm\_head (opt-in)
 - ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
-- ○ [#4215](https://github.com/jundot/omlx/pull/4215) fix(mtp): keep greedy Qwen3.5 verify independent of the draft depth
 - ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (6 merged · 9 open)
+**Other projects** (6 merged · 12 open)
 
 - ✓ [api7/aisix#1348](https://github.com/api7/aisix/pull/1348) refactor(bedrock): send Converse request bodies with a stable key order
 - ✓ [ROCm/aiter#6693](https://github.com/ROCm/aiter/pull/6693) \[Config\] Qwen3.8-Flash-Next FP8 fused-MoE tuned configs for gfx942 (MI325X, 304 CUs)
@@ -136,9 +136,12 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
-- ○ [recursive-oss/rec#23](https://github.com/recursive-oss/rec/pull/23) Replace the vocabulary sorts in top\_p/top\_k sampling with a candidate kernel (draft)
-- ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention (draft)
-- ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention (draft)
+- ○ [ml-explore/mlx-lm#2006](https://github.com/ml-explore/mlx-lm/pull/2006) Skip fully masked key tiles in Flint sliding-window prefill
+- ○ [recursive-oss/rec#27](https://github.com/recursive-oss/rec/pull/27) Raise the HTTP server's listen backlog to 32
+- ○ [recursive-oss/rec#25](https://github.com/recursive-oss/rec/pull/25) Use the causal mask mode for global-layer prefill attention
+- ○ [recursive-oss/rec#23](https://github.com/recursive-oss/rec/pull/23) Share one sort between top\_p and top\_k sampling
+- ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention
+- ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention
 - ○ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
 - ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Use BLOCK\_N=32 for sparse GQA prefill on gfx942
