@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-33 pull requests to projects I don't maintain: 13 merged · 20 open.
+48 pull requests to projects I don't maintain: 22 merged · 26 open.
 
 **Apple coremltools** (1 open)
 
@@ -128,14 +128,29 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (6 merged · 12 open)
+**Other projects** (15 merged · 18 open)
 
+- ✓ [elie222/rakazo#2101](https://github.com/elie222/rakazo/pull/2101) fix(mcp): honour the private-endpoint opt-in during OAuth
+- ✓ [elie222/rakazo#2190](https://github.com/elie222/rakazo/pull/2190) fix(runtime): skip the SDK retry when a backup model is set
+- ✓ [elie222/rakazo#2181](https://github.com/elie222/rakazo/pull/2181) fix(runs): deny an expired run's open approval
+- ✓ [elie222/rakazo#2171](https://github.com/elie222/rakazo/pull/2171) fix(runs): deny an open approval when its run is stopped
+- ✓ [elie222/rakazo#2167](https://github.com/elie222/rakazo/pull/2167) docs(self-host): restore a production snapshot into a new stack
+- ✓ [elie222/rakazo#2168](https://github.com/elie222/rakazo/pull/2168) test(adapters): cover backup-model switching and the sub-agent tool-call fuse
+- ✓ [elie222/rakazo#2149](https://github.com/elie222/rakazo/pull/2149) fix(approvals): replace the opposite rule when one is set
+- ✓ [elie222/rakazo#2102](https://github.com/elie222/rakazo/pull/2102) fix(computer): resolve a leading \~ in file tool paths to the computer's home
+- ✓ [elie222/rakazo#2103](https://github.com/elie222/rakazo/pull/2103) fix(routines): don't charge tool discovery against a watched tool's timeout
 - ✓ [api7/aisix#1348](https://github.com/api7/aisix/pull/1348) refactor(bedrock): send Converse request bodies with a stable key order
 - ✓ [ROCm/aiter#6693](https://github.com/ROCm/aiter/pull/6693) \[Config\] Qwen3.8-Flash-Next FP8 fused-MoE tuned configs for gfx942 (MI325X, 304 CUs)
 - ✓ [NandhaKishorM/laya#260](https://github.com/NandhaKishorM/laya/pull/260) docs: add laya-apple to Community Tools
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [elie222/rakazo#2234](https://github.com/elie222/rakazo/pull/2234) fix(bot-messages): don't relay a bare NO\_RESPONSE to the asking bot
+- ○ [elie222/rakazo#2232](https://github.com/elie222/rakazo/pull/2232) fix(routines): refuse duplicate and excess routines in schedule\_create
+- ○ [elie222/rakazo#2231](https://github.com/elie222/rakazo/pull/2231) docs(self-host): restricted egress on Docker-in-VM hosts (OrbStack)
+- ○ [elie222/rakazo#2230](https://github.com/elie222/rakazo/pull/2230) fix(web): let web\_fetch read past a truncated page
+- ○ [Blaizzy/mlx-vlm#2596](https://github.com/Blaizzy/mlx-vlm/pull/2596) Compile Flint expert routing
+- ○ [elie222/rakazo#2119](https://github.com/elie222/rakazo/pull/2119) fix(approvals): refuse a retry of an action the user denied in the same run
 - ○ [ml-explore/mlx-lm#2006](https://github.com/ml-explore/mlx-lm/pull/2006) Skip fully masked key tiles in Flint sliding-window prefill
 - ○ [recursive-oss/rec#27](https://github.com/recursive-oss/rec/pull/27) Raise the HTTP server's listen backlog to 32
 - ○ [recursive-oss/rec#25](https://github.com/recursive-oss/rec/pull/25) Use the causal mask mode for global-layer prefill attention
