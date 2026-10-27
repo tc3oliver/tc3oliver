@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-48 pull requests to projects I don't maintain: 22 merged · 26 open.
+49 pull requests to projects I don't maintain: 25 merged · 24 open.
 
 **Apple coremltools** (1 open)
 
@@ -112,15 +112,15 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (6 merged · 7 open)
+**oMLX** (7 merged · 6 open)
 
+- ✓ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
 - ✓ [#3685](https://github.com/jundot/omlx/pull/3685) fix(attention): keep SDPA256 prefill on the bounded route
 - ✓ [#3842](https://github.com/jundot/omlx/pull/3842) feat(specprefill): preserve draft recurrent state at cache boundaries
 - ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
-- ○ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ○ [#4500](https://github.com/jundot/omlx/pull/4500) perf(mtp): let greedy chains draft through the coarse lm\_head (opt-in)
 - ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
 - ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
@@ -128,8 +128,10 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (15 merged · 18 open)
+**Other projects** (17 merged · 17 open)
 
+- ✓ [recursive-oss/rec#27](https://github.com/recursive-oss/rec/pull/27) Raise the HTTP server's listen backlog to 32
+- ✓ [elie222/rakazo#2232](https://github.com/elie222/rakazo/pull/2232) fix(routines): refuse duplicate and excess routines in schedule\_create
 - ✓ [elie222/rakazo#2101](https://github.com/elie222/rakazo/pull/2101) fix(mcp): honour the private-endpoint opt-in during OAuth
 - ✓ [elie222/rakazo#2190](https://github.com/elie222/rakazo/pull/2190) fix(runtime): skip the SDK retry when a backup model is set
 - ✓ [elie222/rakazo#2181](https://github.com/elie222/rakazo/pull/2181) fix(runs): deny an expired run's open approval
@@ -145,14 +147,13 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [vllm-project/vllm#63746](https://github.com/vllm-project/vllm/pull/63746) \[Perf\]\[Attention\] Larger prefill Q tile for Triton unified attention on sm80/sm89
 - ○ [elie222/rakazo#2234](https://github.com/elie222/rakazo/pull/2234) fix(bot-messages): don't relay a bare NO\_RESPONSE to the asking bot
-- ○ [elie222/rakazo#2232](https://github.com/elie222/rakazo/pull/2232) fix(routines): refuse duplicate and excess routines in schedule\_create
 - ○ [elie222/rakazo#2231](https://github.com/elie222/rakazo/pull/2231) docs(self-host): restricted egress on Docker-in-VM hosts (OrbStack)
 - ○ [elie222/rakazo#2230](https://github.com/elie222/rakazo/pull/2230) fix(web): let web\_fetch read past a truncated page
 - ○ [Blaizzy/mlx-vlm#2596](https://github.com/Blaizzy/mlx-vlm/pull/2596) Compile Flint expert routing
 - ○ [elie222/rakazo#2119](https://github.com/elie222/rakazo/pull/2119) fix(approvals): refuse a retry of an action the user denied in the same run
 - ○ [ml-explore/mlx-lm#2006](https://github.com/ml-explore/mlx-lm/pull/2006) Skip fully masked key tiles in Flint sliding-window prefill
-- ○ [recursive-oss/rec#27](https://github.com/recursive-oss/rec/pull/27) Raise the HTTP server's listen backlog to 32
 - ○ [recursive-oss/rec#25](https://github.com/recursive-oss/rec/pull/25) Use the causal mask mode for global-layer prefill attention
 - ○ [recursive-oss/rec#23](https://github.com/recursive-oss/rec/pull/23) Share one sort between top\_p and top\_k sampling
 - ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention
