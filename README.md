@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-49 pull requests to projects I don't maintain: 25 merged · 24 open.
+48 pull requests to projects I don't maintain: 26 merged · 22 open.
 
 **Apple coremltools** (1 open)
 
@@ -112,7 +112,7 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (7 merged · 6 open)
+**oMLX** (7 merged · 5 open)
 
 - ✓ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
@@ -123,13 +123,13 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
 - ○ [#4500](https://github.com/jundot/omlx/pull/4500) perf(mtp): let greedy chains draft through the coarse lm\_head (opt-in)
 - ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
-- ○ [#3962](https://github.com/jundot/omlx/pull/3962) test: reset the image decode cache between tests
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (17 merged · 17 open)
+**Other projects** (18 merged · 16 open)
 
+- ✓ [elie222/rakazo#2234](https://github.com/elie222/rakazo/pull/2234) fix(bot-messages): don't relay a bare NO\_RESPONSE to the asking bot
 - ✓ [recursive-oss/rec#27](https://github.com/recursive-oss/rec/pull/27) Raise the HTTP server's listen backlog to 32
 - ✓ [elie222/rakazo#2232](https://github.com/elie222/rakazo/pull/2232) fix(routines): refuse duplicate and excess routines in schedule\_create
 - ✓ [elie222/rakazo#2101](https://github.com/elie222/rakazo/pull/2101) fix(mcp): honour the private-endpoint opt-in during OAuth
@@ -148,7 +148,6 @@ and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-cano
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
 - ○ [vllm-project/vllm#63746](https://github.com/vllm-project/vllm/pull/63746) \[Perf\]\[Attention\] Larger prefill Q tile for Triton unified attention on sm80/sm89
-- ○ [elie222/rakazo#2234](https://github.com/elie222/rakazo/pull/2234) fix(bot-messages): don't relay a bare NO\_RESPONSE to the asking bot
 - ○ [elie222/rakazo#2231](https://github.com/elie222/rakazo/pull/2231) docs(self-host): restricted egress on Docker-in-VM hosts (OrbStack)
 - ○ [elie222/rakazo#2230](https://github.com/elie222/rakazo/pull/2230) fix(web): let web\_fetch read past a truncated page
 - ○ [Blaizzy/mlx-vlm#2596](https://github.com/Blaizzy/mlx-vlm/pull/2596) Compile Flint expert routing
