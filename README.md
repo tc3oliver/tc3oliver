@@ -6,7 +6,7 @@ whether the same request gives the same output, where the latency actually goes.
 bug in something I depend on, I send the fix upstream — including to MLX, oMLX, ROCm AITER,
 vLLM and Apple's coremltools.
 
-[meowcoder.com](https://meowcoder.com) · [Research notes](https://study.meowcoder.com) ·
+[meowcoder.com](https://meowcoder.com) · [Research notes](https://meowcoder.com/en/study/) ·
 [tc3oliver@gmail.com](mailto:tc3oliver@gmail.com)
 
 ## Upstream contributions
@@ -56,21 +56,21 @@ what inference optimizations cost later requests: a sparse prefill that stops th
 growing, speculative decoding where verify cost matters more than acceptance rate, and rebuilding
 the reusable state in the background. The oMLX maintainer closed my pull request (#3964) without
 merging, arguing recovery at best matches SpecPrefill off; I never ran a clean off to compare against.
-[Case study](https://meowcoder.com/work/llm-inference-systems/) ·
+[Case study](https://meowcoder.com/en/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
 **[Embed2ASR](https://github.com/tc3oliver/embed2asr)**: a small reader trained on a frozen
 EmbeddingGemma 2 audio encoder transcribes Mandarin, English and code-switched speech. On one MI300X it ran 4.16× faster than Whisper large-v3,
 which wins on most test sets.
-[Case study](https://meowcoder.com/work/embed2asr/) ·
-[Write-up](https://study.meowcoder.com/posts/261016-embed2asr-frozen-encoder/)
+[Case study](https://meowcoder.com/en/work/embed2asr/) ·
+[Write-up](https://meowcoder.com/study/261016-embed2asr-frozen-encoder/)
 
 **[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval)**: a
 pre-registered evaluation of a 27B model on one 16 GB RTX 5070 Ti, with raw data and graders. It
 scores 92.1 % on HumanEval+. The first competitor spilled out of VRAM mid-run, so I voided that
 run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error but
 decoded at 5.9 tok/s, apparently because some memory had landed in system RAM.
-[Article](https://study.meowcoder.com/posts/261003-qwen38-27b-5070ti-round1/) ·
+[Article](https://meowcoder.com/study/261003-qwen38-27b-5070ti-round1/) ·
 [Evidence index](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval/blob/main/EVIDENCE-INDEX.md)
 
 **[PiShip](https://github.com/tc3oliver/piship)**: lets a company ship
@@ -94,10 +94,10 @@ concurrent agent-team workers and shows them in a Mission Control pane
 
 ## Writing
 
-I write up research at [study.meowcoder.com](https://study.meowcoder.com), in Traditional
+I write up research [on my site](https://meowcoder.com/en/study/), in Traditional
 Chinese. Two good places to start:
-[當 prefill 變快，agent 反而變慢](https://study.meowcoder.com/posts/260920-inference-reusable-state/)
-and [償還 reusable state 的債](https://study.meowcoder.com/posts/260921-canonical-state-debt-recovery/).
+[當 prefill 變快，agent 反而變慢](https://meowcoder.com/study/260920-inference-reusable-state/)
+and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-state-debt-recovery/).
 
 ## All upstream pull requests
 
