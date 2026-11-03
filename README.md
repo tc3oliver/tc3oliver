@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-51 pull requests to projects I don't maintain: 30 merged · 21 open.
+51 pull requests to projects I don't maintain: 31 merged · 20 open.
 
 **Apple coremltools** (1 open)
 
@@ -127,8 +127,9 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (22 merged · 15 open)
+**Other projects** (23 merged · 14 open)
 
+- ✓ [ROCm/aiter#6692](https://github.com/ROCm/aiter/pull/6692) \[CK\] \[Bugfix\] FMoE tuner: use all sources for shapes FlyDSL v2 cannot tune
 - ✓ [wangzan101/Mika#14](https://github.com/wangzan101/Mika/pull/14) Anthropic 请求在最后一条 user 消息上标缓存
 - ✓ [elie222/rakazo#2119](https://github.com/elie222/rakazo/pull/2119) fix(approvals): refuse a retry of an action the user denied in the same run
 - ✓ [elie222/rakazo#2231](https://github.com/elie222/rakazo/pull/2231) docs(self-host): restricted egress on Docker-in-VM hosts (OrbStack)
@@ -164,7 +165,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
 - ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Use BLOCK\_N=32 for sparse GQA prefill on gfx942
 - ○ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
-- ○ [ROCm/aiter#6692](https://github.com/ROCm/aiter/pull/6692) \[CK\] \[Bugfix\] FMoE tuner: use all sources for shapes FlyDSL v2 cannot tune
 - ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
 <details>
