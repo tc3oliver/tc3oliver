@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-52 pull requests to projects I don't maintain: 33 merged · 19 open.
+52 pull requests to projects I don't maintain: 34 merged · 18 open.
 
 **Apple coremltools** (1 open)
 
@@ -127,8 +127,9 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (25 merged · 13 open)
+**Other projects** (26 merged · 12 open)
 
+- ✓ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
 - ✓ [0c-biggo/0c-ime#51](https://github.com/0c-biggo/0c-ime/pull/51) perf: 按鍵熱路徑的段級重排快取與更正索引，行為不變
 - ✓ [aethai/ro3emu-server#371](https://github.com/aethai/ro3emu-server/pull/371) Download a package over several connections
 - ✓ [ROCm/aiter#6692](https://github.com/ROCm/aiter/pull/6692) \[CK\] \[Bugfix\] FMoE tuner: use all sources for shapes FlyDSL v2 cannot tune
@@ -162,7 +163,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [recursive-oss/rec#23](https://github.com/recursive-oss/rec/pull/23) Share one sort between top\_p and top\_k sampling
 - ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention
 - ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention
-- ○ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
 - ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tune sparse GQA prefill profile on gfx942 and gfx950
 - ○ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
