@@ -61,7 +61,8 @@ merging, arguing recovery at best matches SpecPrefill off; I never ran a clean o
 
 **[Embed2ASR](https://github.com/tc3oliver/embed2asr)**: a small reader trained on a frozen
 EmbeddingGemma 2 audio encoder transcribes Mandarin, English and code-switched speech. On one MI300X it ran 4.16× faster than Whisper large-v3,
-which wins on most test sets.
+which wins on most test sets. [TingMix](https://github.com/tc3oliver/tingmix) is the follow-up, with
+LoRA on the encoder, a larger reader and streaming.
 [Case study](https://meowcoder.com/en/work/embed2asr/) ·
 [Write-up](https://meowcoder.com/study/261016-embed2asr-frozen-encoder/)
 
@@ -85,8 +86,8 @@ payloads match. TypeScript.
 Smaller things: [SignalForge](https://github.com/tc3oliver/signalforge), a self-hosted
 intelligence pipeline; [version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp),
 an MCP server that keeps a coding agent's code search on the right commit;
-[deepseek-v4-flash-mi300x](https://github.com/tc3oliver/deepseek-v4-flash-mi300x), a vLLM serving
-baseline on AMD MI300X;
+[qwen3.8-flash-next-mi325x](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x), a vLLM overlay
+and its serving setup (the overlay took 8 × 32K prefill on two MI325X GPUs from 12,966 to 25,917 tok/s);
 [claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that limits
 concurrent agent-team workers and shows them in a Mission Control pane
 (pre-release); [Shouri](https://shouri.app);
