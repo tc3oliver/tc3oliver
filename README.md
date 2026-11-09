@@ -103,7 +103,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-55 pull requests to projects I don't maintain: 36 merged · 19 open.
+57 pull requests to projects I don't maintain: 36 merged · 21 open.
 
 **Apple coremltools** (1 open)
 
@@ -128,7 +128,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (28 merged · 13 open)
+**Other projects** (28 merged · 15 open)
 
 - ✓ [elie222/rakazo#3933](https://github.com/elie222/rakazo/pull/3933) fix(installer): read the tag the way Compose does
 - ✓ [elie222/rakazo#3932](https://github.com/elie222/rakazo/pull/3932) fix(installer): download Compose files from the pinned release
@@ -158,6 +158,8 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ✓ [eiei114/pi-model-fallback#64](https://github.com/eiei114/pi-model-fallback/pull/64) fix(error-status): parse "Error: &lt;status&gt;" with no colon after the status
 - ✓ [DrJuChunKoO/TransPal-gemini-transcriber#1](https://github.com/DrJuChunKoO/TransPal-gemini-transcriber/pull/1) feat: add resume-from-interruption support for long audio transcriptions
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
+- ○ [vllm-project/vllm#66485](https://github.com/vllm-project/vllm/pull/66485) \[ROCm\]\[Perf\] Use 64 split-KV segments for small decode batches on gfx942
+- ○ [vllm-project/vllm#66484](https://github.com/vllm-project/vllm/pull/66484) \[ROCm\]\[Perf\] Tune MXFP4 MoE tiles on gfx942
 - ○ [aethai/ro3emu-server#422](https://github.com/aethai/ro3emu-server/pull/422) Add a Traditional Chinese text language (--lang zh-TW) (draft)
 - ○ [vllm-project/vllm#64662](https://github.com/vllm-project/vllm/pull/64662) \[ROCm\]\[Perf\] Add MI325X FP8 fused MoE configs for Qwen3.8-Flash-Next
 - ○ [vllm-project/vllm#63746](https://github.com/vllm-project/vllm/pull/63746) \[Perf\]\[Attention\] Larger prefill Q tile for Triton unified attention on sm80/sm89
