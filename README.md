@@ -103,7 +103,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-56 pull requests to projects I don't maintain: 36 merged · 20 open.
+56 pull requests to projects I don't maintain: 37 merged · 19 open.
 
 **Apple coremltools** (1 open)
 
@@ -128,8 +128,9 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (28 merged · 14 open)
+**Other projects** (29 merged · 13 open)
 
+- ✓ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tune sparse GQA prefill profile on gfx942 and gfx950
 - ✓ [elie222/rakazo#3933](https://github.com/elie222/rakazo/pull/3933) fix(installer): read the tag the way Compose does
 - ✓ [elie222/rakazo#3932](https://github.com/elie222/rakazo/pull/3932) fix(installer): download Compose files from the pinned release
 - ✓ [BerriAI/litellm#47484](https://github.com/BerriAI/litellm/pull/47484) fix(least-busy): reserve the picked deployment so a burst of requests spreads out
@@ -169,7 +170,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention
 - ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
-- ○ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tune sparse GQA prefill profile on gfx942 and gfx950
 - ○ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
 - ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
