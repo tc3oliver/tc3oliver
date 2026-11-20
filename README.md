@@ -33,7 +33,7 @@ vLLM and Apple's coremltools.
 
 **vLLM**
 
-- Open · [#62589](https://github.com/vllm-project/vllm/pull/62589 "[ROCm][Perf][Qwen4Exp] Tile QSA indexer scoring and skip invisible columns"): The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. An independent tester measured 1.61× geometric-mean output throughput over 12 cases on MI355X, on the first revision.
+- **Merged** · [#62589](https://github.com/vllm-project/vllm/pull/62589 "[ROCm][Perf][Qwen4Exp] Tile QSA indexer scoring and skip invisible columns"): The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. An independent tester measured 1.61× geometric-mean output throughput over 12 cases on MI355X, on the first revision.
 <!-- OSS-SELECTED:END -->
 
 <sub>Status syncs from GitHub daily. The rest:
@@ -103,7 +103,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-56 pull requests to projects I don't maintain: 37 merged · 19 open.
+55 pull requests to projects I don't maintain: 38 merged · 17 open.
 
 **Apple coremltools** (1 open)
 
@@ -113,7 +113,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (7 merged · 5 open)
+**oMLX** (7 merged · 4 open)
 
 - ✓ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
@@ -122,14 +122,14 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ✓ [#3840](https://github.com/jundot/omlx/pull/3840) fix(specprefill): derive draft cache position from attention layers
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
-- ○ [#4500](https://github.com/jundot/omlx/pull/4500) perf(mtp): let greedy chains draft through the coarse lm\_head (opt-in)
 - ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
 - ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (29 merged · 13 open)
+**Other projects** (30 merged · 12 open)
 
+- ✓ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
 - ✓ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tune sparse GQA prefill profile on gfx942 and gfx950
 - ✓ [elie222/rakazo#3933](https://github.com/elie222/rakazo/pull/3933) fix(installer): read the tag the way Compose does
 - ✓ [elie222/rakazo#3932](https://github.com/elie222/rakazo/pull/3932) fix(installer): download Compose files from the pinned release
@@ -170,7 +170,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [recursive-oss/rec#22](https://github.com/recursive-oss/rec/pull/22) Resolve each KV address once per token in long-context attention
 - ○ [recursive-oss/rec#21](https://github.com/recursive-oss/rec/pull/21) Skip fully masked key tiles in sliding-window prefill attention
 - ○ [BerriAI/litellm#47483](https://github.com/BerriAI/litellm/pull/47483) fix(http\_handler): keep the connect timeout bounded when a request passes a numeric timeout
-- ○ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
 - ○ [ray-project/llmperf#100](https://github.com/ray-project/llmperf/pull/100) feat: Support reasoning\_content in OpenAI chat completions streaming response
 
 <details>
