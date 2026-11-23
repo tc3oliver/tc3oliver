@@ -33,7 +33,7 @@ vLLM and Apple's coremltools.
 
 **vLLM**
 
-- **Merged** · [#62589](https://github.com/vllm-project/vllm/pull/62589 "[ROCm][Perf][Qwen4Exp] Tile QSA indexer scoring and skip invisible columns"): The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. An independent tester measured 1.61× geometric-mean output throughput over 12 cases on MI355X, on the first revision.
+- **Merged** · [#62589](https://github.com/vllm-project/vllm/pull/62589 "[ROCm][Perf][Qwen4Exp] Tile QSA indexer scoring and skip invisible columns"): The ROCm sparse-attention indexer scored every row against the full page-table width; in a 32K prefill on MI325X that kernel took 43% of GPU time. The patch skips columns past each request's visible range and tiles the scoring. AMD's Mikko Tukiainen measured 1.62× geometric-mean output throughput over 12 serving cases on MI355X, and 1.43× on MI325X.
 <!-- OSS-SELECTED:END -->
 
 <sub>Status syncs from GitHub daily. The rest:
