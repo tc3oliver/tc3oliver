@@ -44,8 +44,8 @@ the fix upstream, including to vLLM, MLX, oMLX, ROCm AITER and Apple's coremltoo
 **[qwen3.8-flash-next-mi325x](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x)**: a vLLM
 overlay and serving setup for Qwen3.8-Flash-Next on AMD MI325X. On two GPUs it took 8 × 32K
 prefill from 12,966 to 25,917 tok/s against stock vLLM, with GSM8K unchanged; most of that is
-the indexer change in vLLM #62589 above. It also packages the earlier #62590 launch rule and
-tuned MoE tables.
+the indexer change in vLLM #62589. The overlay also carries an earlier revision of #62590's
+sparse-GQA launch profile, and the repo ships tuned AITER MoE tables.
 [Case study](https://meowcoder.com/en/work/rocm-kernel-optimization/) ·
 [Raw results](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x/tree/main/results)
 
