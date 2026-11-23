@@ -161,7 +161,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [vllm-project/vllm#66485](https://github.com/vllm-project/vllm/pull/66485) \[ROCm\]\[Perf\] Use 64 split-KV segments for small decode batches on gfx942
 - ○ [vllm-project/vllm#66484](https://github.com/vllm-project/vllm/pull/66484) \[ROCm\]\[Perf\] Tune MXFP4 MoE tiles on gfx942
 - ○ [aethai/ro3emu-server#422](https://github.com/aethai/ro3emu-server/pull/422) Add a Traditional Chinese text language (--lang zh-TW) (draft)
-- ○ [vllm-project/vllm#64662](https://github.com/vllm-project/vllm/pull/64662) \[ROCm\]\[Perf\] Add MI325X FP8 fused MoE configs for Qwen3.8-Flash-Next
+- ○ [vllm-project/vllm#64662](https://github.com/vllm-project/vllm/pull/64662) \[ROCm\]\[Perf\] Add MI325X TP4 FP8 fused MoE config for Qwen3.8-Flash-Next
 - ○ [vllm-project/vllm#63746](https://github.com/vllm-project/vllm/pull/63746) \[Perf\]\[Attention\] Larger prefill Q tile for Triton unified attention on sm80/sm89
 - ○ [Neywa-Labs/mlx-vlm#2596](https://github.com/Neywa-Labs/mlx-vlm/pull/2596) Compile Flint expert routing
 - ○ [ml-explore/mlx-lm#2006](https://github.com/ml-explore/mlx-lm/pull/2006) Skip fully masked key tiles in Flint sliding-window prefill
