@@ -1,10 +1,10 @@
 # Oliver Yu
 
-I work on LLM inference, mostly on Apple silicon with MLX, Core ML and the Neural Engine. A lot
-of that is measuring runtimes: how well the cache gets reused, what happens under concurrency,
-whether the same request gives the same output, where the latency actually goes. When I find a
-bug in something I depend on, I send the fix upstream — including to MLX, oMLX, ROCm AITER,
-vLLM and Apple's coremltools.
+At work I build enterprise AI platforms: a unified AI gateway, on-premises model serving and a
+coding agent. I also measure LLM inference on Apple silicon, AMD Instinct and NVIDIA GPUs: how
+well the cache gets reused, what happens under concurrency, whether the same request gives the
+same output, where the latency actually goes. When I find a bug in something I depend on, I send
+the fix upstream, including to vLLM, MLX, oMLX, ROCm AITER and Apple's coremltools.
 
 [meowcoder.com](https://meowcoder.com) · [Research notes](https://meowcoder.com/en/study/) ·
 [tc3oliver@gmail.com](mailto:tc3oliver@gmail.com)
@@ -41,6 +41,14 @@ vLLM and Apple's coremltools.
 
 ## Projects
 
+**[qwen3.8-flash-next-mi325x](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x)**: a vLLM
+overlay and serving setup for Qwen3.8-Flash-Next on AMD MI325X. On two GPUs it took 8 × 32K
+prefill from 12,966 to 25,917 tok/s against stock vLLM, with GSM8K unchanged; most of that is
+the indexer change in vLLM #62589. The overlay also carries an earlier revision of #62590's
+sparse-GQA launch profile, and the repo ships tuned AITER MoE tables.
+[Case study](https://meowcoder.com/en/work/rocm-kernel-optimization/) ·
+[Raw results](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x/tree/main/results)
+
 **[laya-apple](https://github.com/tc3oliver/laya-apple)**: runs
 [Laya](https://github.com/NandhaKishorM/laya) on the MLX GPU and the Neural Engine
 concurrently, with every output checked against upstream Laya. Profiling showed GPU tail latency climbing
@@ -54,8 +62,7 @@ it detects the slow state. Median GPU result return on an M4 Max went from 4–9
 **[llm-inference-systems](https://github.com/tc3oliver/llm-inference-systems)**: experiments on
 what inference optimizations cost later requests: a sparse prefill that stops the reusable prefix
 growing, speculative decoding where verify cost matters more than acceptance rate, and rebuilding
-the reusable state in the background. The oMLX maintainer closed my pull request (#3964) without
-merging, arguing recovery at best matches SpecPrefill off; I never ran a clean off to compare against.
+the reusable state in the background.
 [Case study](https://meowcoder.com/en/work/llm-inference-systems/) ·
 [Engineering notes](https://github.com/tc3oliver/llm-inference-systems/blob/main/ENGINEERING.md)
 
@@ -65,14 +72,6 @@ which wins on most test sets. [TingMix](https://github.com/tc3oliver/tingmix) is
 LoRA on the encoder, a larger reader and streaming.
 [Case study](https://meowcoder.com/en/work/embed2asr/) ·
 [Write-up](https://meowcoder.com/study/261016-embed2asr-frozen-encoder/)
-
-**[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval)**: a
-pre-registered evaluation of a 27B model on one 16 GB RTX 5070 Ti, with raw data and graders. It
-scores 92.1 % on HumanEval+. The first competitor spilled out of VRAM mid-run, so I voided that
-run and round 1 makes no comparison. Under WSL2 a 128K context loaded without an error but
-decoded at 5.9 tok/s, apparently because some memory had landed in system RAM.
-[Article](https://meowcoder.com/study/261003-qwen38-27b-5070ti-round1/) ·
-[Evidence index](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval/blob/main/EVIDENCE-INDEX.md)
 
 **[PiShip](https://github.com/tc3oliver/piship)**: lets a company ship
 [Pi](https://github.com/earendil-works/pi) as its own coding agent without forking it. Pi keeps
@@ -86,8 +85,8 @@ payloads match. TypeScript.
 Smaller things: [SignalForge](https://github.com/tc3oliver/signalforge), a self-hosted
 intelligence pipeline; [version-aware-code-mcp](https://github.com/tc3oliver/version-aware-code-mcp),
 an MCP server that keeps a coding agent's code search on the right commit;
-[qwen3.8-flash-next-mi325x](https://github.com/tc3oliver/qwen3.8-flash-next-mi325x), a vLLM overlay
-and its serving setup (the overlay took 8 × 32K prefill on two MI325X GPUs from 12,966 to 25,917 tok/s);
+[qwen3.8-27b-5070ti-eval](https://github.com/tc3oliver/qwen3.8-27b-5070ti-eval), a pre-registered
+evaluation of a 27B model on one 16 GB RTX 5070 Ti (92.1 % on HumanEval+);
 [claude-team-kit](https://github.com/tc3oliver/claude-team-kit), a Claude Code plugin that limits
 concurrent agent-team workers and shows them in a Mission Control pane
 (pre-release); [Shouri](https://shouri.app);
