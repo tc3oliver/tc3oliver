@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-55 pull requests to projects I don't maintain: 38 merged · 17 open.
+55 pull requests to projects I don't maintain: 39 merged · 16 open.
 
 **Apple coremltools** (1 open)
 
@@ -126,8 +126,9 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
-**Other projects** (30 merged · 12 open)
+**Other projects** (31 merged · 11 open)
 
+- ✓ [aethai/ro3emu-server#422](https://github.com/aethai/ro3emu-server/pull/422) Add a Traditional Chinese text language (--lang zh-TW)
 - ✓ [vllm-project/vllm#62589](https://github.com/vllm-project/vllm/pull/62589) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tile QSA indexer scoring and skip invisible columns
 - ✓ [vllm-project/vllm#62590](https://github.com/vllm-project/vllm/pull/62590) \[ROCm\]\[Perf\]\[Qwen4Exp\] Tune sparse GQA prefill profile on gfx942 and gfx950
 - ✓ [elie222/rakazo#3933](https://github.com/elie222/rakazo/pull/3933) fix(installer): read the tag the way Compose does
@@ -160,7 +161,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ✓ [Baseflow/screenrecorder#9](https://github.com/Baseflow/screenrecorder/pull/9) fix: fix the black background
 - ○ [vllm-project/vllm#66485](https://github.com/vllm-project/vllm/pull/66485) \[ROCm\]\[Perf\] Use 64 split-KV segments for small decode batches on gfx942
 - ○ [vllm-project/vllm#66484](https://github.com/vllm-project/vllm/pull/66484) \[ROCm\]\[Perf\] Tune MXFP4 MoE tiles on gfx942
-- ○ [aethai/ro3emu-server#422](https://github.com/aethai/ro3emu-server/pull/422) Add a Traditional Chinese text language (--lang zh-TW) (draft)
 - ○ [vllm-project/vllm#64662](https://github.com/vllm-project/vllm/pull/64662) \[ROCm\]\[Perf\] Add MI325X TP4 FP8 fused MoE config for Qwen3.8-Flash-Next
 - ○ [vllm-project/vllm#63746](https://github.com/vllm-project/vllm/pull/63746) \[Perf\]\[Attention\] Larger prefill Q tile for Triton unified attention on sm80/sm89
 - ○ [Neywa-Labs/mlx-vlm#2596](https://github.com/Neywa-Labs/mlx-vlm/pull/2596) Compile Flint expert routing
