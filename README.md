@@ -102,7 +102,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 ## All upstream pull requests
 
 <!-- OSS-AUTO:START -->
-55 pull requests to projects I don't maintain: 39 merged · 16 open.
+53 pull requests to projects I don't maintain: 39 merged · 14 open.
 
 **Apple coremltools** (1 open)
 
@@ -112,7 +112,7 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 
 - ✓ [#4615](https://github.com/ml-explore/mlx/pull/4615) Fix lost rank output in the distributed launcher
 
-**oMLX** (7 merged · 4 open)
+**oMLX** (7 merged · 2 open)
 
 - ✓ [#4822](https://github.com/jundot/omlx/pull/4822) fix(unlimited-ocr): don't add a second &lt;image&gt; to a prompt that has one
 - ✓ [#4035](https://github.com/jundot/omlx/pull/4035) fix(scheduler): clear SpecPrefill state after failures and cache rejects
@@ -122,8 +122,6 @@ and [償還 reusable state 的債](https://meowcoder.com/study/260921-canonical-
 - ✓ [#3746](https://github.com/jundot/omlx/pull/3746) fix(ane): avoid impossible sequence-length guidance below the ANE minimum
 - ✓ [#3664](https://github.com/jundot/omlx/pull/3664) fix(responses): route namespace tool groups through to the model and back
 - ○ [#4461](https://github.com/jundot/omlx/pull/4461) fix(specprefill): keep manual\_rope output in the input dtype
-- ○ [#3811](https://github.com/jundot/omlx/pull/3811) fix(specprefill): keep selected tokens at their original positions on mRoPE VLMs
-- ○ [#3762](https://github.com/jundot/omlx/pull/3762) feat(anthropic): accept per-request SpecPrefill overrides on /v1/messages
 - ○ [#3756](https://github.com/jundot/omlx/pull/3756) fix(specprefill): preserve the full static system/tool prefix
 
 **Other projects** (31 merged · 11 open)
